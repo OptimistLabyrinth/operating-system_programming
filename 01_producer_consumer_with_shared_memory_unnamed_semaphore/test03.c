@@ -1,7 +1,3 @@
-#include <stdio.h>
-
-#ifndef __BUFFER_H__
-#define __BUFFER_H__
 #include "buffer.h"
 
 void print_test(void)
@@ -9,11 +5,9 @@ void print_test(void)
     shared_buffer_struct gv;
     gv.in = 0;
     gv.out = 1;
-    gv.count = 2;
     gv.buffer[gv.in] = -1;
     print_int(gv.in);
     print_int(gv.out);
-    print_int(gv.count);
     print_int(gv.buffer[gv.out-1]);
 }
 
@@ -105,7 +99,5 @@ int main(void)
 
     return 0;
 }
-
-#endif /* __BUFFER_H__ */
 
 
