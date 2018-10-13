@@ -10,14 +10,9 @@
  * 
  * Struct List:         shared_buffer_struct
  * 
- * Function List:       print_str(const char*)
- *                          call to printf()
- *                      print_int(int)
- *                          call to printf()
- * 
+ * Function List:       --
 ********************************************************************************/
 
-/* Include guard */
 #ifndef __BUFFER_H__
 #define __BUFFER_H__
 
@@ -33,9 +28,6 @@
 #include <sys/types.h>
 #include <fcntl.h>
 #include <unistd.h>
-
-void print_str(const char * string) { printf("%s\n", string); }
-void print_int(int i) { printf("%d\n", i); }
 
 /*******************************************************************************
  * Name of Stuct:       shared_buffer_struct
@@ -69,7 +61,7 @@ void print_int(int i) { printf("%d\n", i); }
  *                          used to control the behavior of the producer process
  *                          initial value 100
  *                          it indicates how many more items the producer
- *                          can put into buffer.
+ *                          can put into buffer
  *                      5. buffer_has_data      (type: sem_t)
  *                          semaphore condition variable
  *                          used to control the behavior of the consumer process
@@ -77,7 +69,8 @@ void print_int(int i) { printf("%d\n", i); }
  *                          it indicates how many more items the consumer
  *                          can retrieve from buffer and use it
  ******************************************************************************/
-typedef struct shared_buffer_struct {
+typedef struct shared_buffer_struct
+{
     int in, out;
     int buffer[100];
     sem_t buffer_has_space, buffer_has_data;
@@ -85,8 +78,7 @@ typedef struct shared_buffer_struct {
 
 } shared_buffer_struct;
 
-
-// function prototypes
+/* function prototypes */
 
 #endif /* __BUFFER_H__ */
 

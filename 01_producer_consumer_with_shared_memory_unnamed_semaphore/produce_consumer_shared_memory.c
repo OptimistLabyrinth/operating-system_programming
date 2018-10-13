@@ -20,11 +20,14 @@
  *                      the shared memory. 
  *                      The consumer process loops through 0 to 1000, retrieves 
  *                      the data from buffer.
- * Compile:             gcc produce_consumer_shared_memory.c -o ./bin/result -lrt -pthread
+ * Compile:             gcc -Wall produce_consumer_shared_memory.c -o ./bin/result -lrt -pthread
 ********************************************************************************/
 
 /* Including header files */
 #include "buffer.h"
+
+static inline void print_int(int) __attribute__((always_inline));
+static inline void print_str(const char*) __attribute__((always_inline));
 
 /*******************************************************************************
  * Name of Function:    main
@@ -95,8 +98,8 @@ int main()
          *  if no
          *      -> do nothing
          */
-        struct stat st_tmp;
-        if (access("/dev/shm/BUFFER", F_OK) == 0)
+        const char* NAME = "/dev/shm/BUFFER";
+        if (access(NAME, F_OK) == 0)
         {
             i_unlink = shm_unlink("BUFFER");
             if (i_unlink == -1) {
@@ -155,7 +158,7 @@ int main()
         {
             sem_wait(&(stptr->buffer_has_space));
             stptr->buffer[stptr->in] = i;
-            printf("inside parent: %d\n", stptr->buffer[stptr->in]);
+            printf("inside parent: %3d\n", stptr->buffer[stptr->in]);
             ++(stptr->in);
             stptr->in %= 100;
             sem_post(&(stptr->buffer_has_data));
@@ -168,7 +171,7 @@ int main()
         for (i=0; i < 1000; ++i)
         {
             sem_wait(&(stptr->buffer_has_data));
-            printf("\tchild: %d\n", stptr->buffer[stptr->out]);         
+            printf("\tchild: %3d\n", stptr->buffer[stptr->out]);         
             ++(stptr->out);
             stptr->out %= 100;
             sem_post(&(stptr->buffer_has_space));
@@ -232,6 +235,16 @@ int main()
 
     /* end of the parent process. end of main */
     return 0;
+}
+
+void print_int(int i) 
+{ 
+    printf("%d\n", i); 
+}
+
+void print_str(const char * string) 
+{ 
+    printf("%s\n", string); 
 }
 
 
