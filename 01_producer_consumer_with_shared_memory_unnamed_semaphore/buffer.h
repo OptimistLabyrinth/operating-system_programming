@@ -13,8 +13,8 @@
  * Function List:       --
 ********************************************************************************/
 
-#ifndef __BUFFER_H__
-#define __BUFFER_H__
+#ifndef __BUFFER_7b69c43f_a728_4d61_aa64_5bf437d65420_H__
+#define __BUFFER_7b69c43f_a728_4d61_aa64_5bf437d65420_H__
 
 /* Including header files */
 #include <stdio.h>
@@ -80,6 +80,6 @@ typedef struct shared_buffer_struct
 
 /* function prototypes */
 
-#endif /* __BUFFER_H__ */
+#endif /* __BUFFER_7b69c43f_a728_4d61_aa64_5bf437d65420_H__ */
 
 
