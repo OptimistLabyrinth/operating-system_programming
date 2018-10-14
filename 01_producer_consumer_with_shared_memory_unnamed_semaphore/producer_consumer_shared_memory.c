@@ -1,5 +1,5 @@
 /*******************************************************************************
- * FILE:                produce_consumer_shared_memory.c
+ * FILE:                producer_consumer_shared_memory.c
  * TITLE:               Main program, multi-processing producer-consumer
  *                      adopting POSIX unnamed semaphore for synchronization
  *                      between two process.
