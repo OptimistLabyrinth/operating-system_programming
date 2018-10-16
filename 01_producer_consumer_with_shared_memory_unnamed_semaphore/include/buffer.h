@@ -1,8 +1,9 @@
 /*******************************************************************************
  * FILE:                buffer.h
- * Title:               Header file for multi-process Producer-Consumer 
- *                      Implementation in C
+ * Title:               Header file for utility which can be used to store
+ *                      data inside shared memory
  * Date:                October 13, 2018
+ * Revised:             October 16, 2018
  * Author:              yks93
  * Email:               keesung0705@gmail.com
  * Assignment:          Operating Systems - Assignment #01
@@ -13,10 +14,9 @@
  * Function List:       --
 ********************************************************************************/
 
-#ifndef __BUFFER_7b69c43f_a728_4d61_aa64_5bf437d65420_H__
-#define __BUFFER_7b69c43f_a728_4d61_aa64_5bf437d65420_H__
+#ifndef __BUFFER_c7325cdf_587f_49d4_9730_0ed81e427d7a_H__
+#define __BUFFER_c7325cdf_587f_49d4_9730_0ed81e427d7a_H__
 
-/* Including header files */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -28,6 +28,9 @@
 #include <sys/types.h>
 #include <fcntl.h>
 #include <unistd.h>
+
+#define BUF_SZ 100
+#define ZERO 0
 
 /*******************************************************************************
  * Name of Stuct:       shared_buffer_struct
@@ -72,14 +75,9 @@
 typedef struct shared_buffer_struct
 {
     int in, out;
-    int buffer[100];
+    int buffer[BUF_SZ];
     sem_t buffer_has_space, buffer_has_data;
-
 
 } shared_buffer_struct;
 
-/* function prototypes */
-
-#endif /* __BUFFER_7b69c43f_a728_4d61_aa64_5bf437d65420_H__ */
-
-
+#endif /* __BUFFER_c7325cdf_587f_49d4_9730_0ed81e427d7a_H__ */

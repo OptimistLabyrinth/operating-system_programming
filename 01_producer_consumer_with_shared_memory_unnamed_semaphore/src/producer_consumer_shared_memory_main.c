@@ -1,11 +1,13 @@
 /*******************************************************************************
  * FILE:                producer_consumer_shared_memory.c
- * TITLE:               Main program, multi-processing producer-consumer
- *                      adopting POSIX unnamed semaphore for synchronization
- *                      between two process.
+ * TITLE:               Main program, 
+ *                      multi-processing producer-consumer C code adopting 
+ *                      POSIX unnamed semaphore for synchronization 
+ *                      of two processes.
  *                      Using POSIX Shared Memory object for inter-process
  *                      communication
  * Date:                October 13, 2018
+ * Revised:             October 16, 2018
  * Author:              yks93
  * Email:               keesung0705@gmail.com
  * Assignment:          Operating Systems - Assignment #01
@@ -20,14 +22,12 @@
  *                      the shared memory. 
  *                      The consumer process loops through 0 to 1000, retrieves 
  *                      the data from buffer.
- * Compile:             gcc -Wall produce_consumer_shared_memory.c -o ./bin/result -lrt -pthread
+ * 
+ * Compile:             Use the CMakeLists.txt file
 ********************************************************************************/
 
-/* Including header files */
-#include "buffer.h"
-
-static inline void print_int(int) __attribute__((always_inline));
-static inline void print_str(const char*) __attribute__((always_inline));
+/* Include header files */
+#include "../include/producer_consumer_shared_memory_main.h"
 
 /*******************************************************************************
  * Name of Function:    main
@@ -38,11 +38,13 @@ static inline void print_str(const char*) __attribute__((always_inline));
  * Parameters:          ()
  * Return Value:        int
  * Calls to:            access, shm_open, ftruncate, mmap, fork, wait
- *                      memset, exit
- *                      sem_init, sem_wait, sem_post
+ *                      exit
+ *                      initiate_variables
+ *                      produce_data, consume_data
  *                      munmap, close, shm_unlink
  *                      printf, print_int, print_str
  * Called from:         --
+ * 
  * Method:              1. check whether the shared memory object exists
  *                         if there is, remove it
  *                      2. create, open, map a new POSIX Shared Memroy object
@@ -74,7 +76,10 @@ static inline void print_str(const char*) __attribute__((always_inline));
  ******************************************************************************/
 int main()
 {
-    /* Declaring vaiables differentiate between parent and child process */
+    /* 
+     *  Declaring vaiables differentiate between parent and child process
+     *  var "pid" stores process-ID
+     */
     pid_t pid;
 
     /*
@@ -87,7 +92,7 @@ int main()
      *      -> returned value from mmap( ) function on success
      */
     int shm_fd;
-    int i_trunc, i_unmap, i_close, i_unlink;
+    int i_trunc, i_wait, i_unmap, i_close, i_unlink;
     void* ptr;
 
     {
@@ -135,15 +140,17 @@ int main()
     print_str("mmap OK");
 
     /* cast the shared memory mapped pointer to the pointer of proper type */
-    shared_buffer_struct* stptr = (shared_buffer_struct*) ptr;
-    print_str("ptr casting");
+    // shared_buffer_struct* stptr = (shared_buffer_struct*) ptr;
+    // print_str("ptr casting");
 
     /* initialize the variables - in, out, buffer, 2 semaphore */
-    stptr->in = 0;      print_int(stptr->in);
-    stptr->out = 0;     print_int(stptr->out);
-    memset(stptr->buffer, -1, sizeof(int) * 100);
-    sem_init(&(stptr->buffer_has_space), 1, 100);
-    sem_init(&(stptr->buffer_has_data), 1, 0);
+    initiate_variables(ptr);
+
+    // stptr->in = 0;      print_int(stptr->in);
+    // stptr->out = 0;     print_int(stptr->out);
+    // memset(stptr->buffer, -1, sizeof(int) * 100);
+    // sem_init(&(stptr->buffer_has_space), 1, 100);
+    // sem_init(&(stptr->buffer_has_data), 1, 0);
 
     /* fork a process */
     if ((pid = fork()) < 0) {
@@ -153,29 +160,33 @@ int main()
     else if (pid != 0) 
     {   // parent : PRODUCER
         print_str("parent begin !!!\n");
-        int i;
-        for (i=0; i < 1000; ++i) 
-        {
-            sem_wait(&(stptr->buffer_has_space));
-            stptr->buffer[stptr->in] = i;
-            printf("inside parent: %3d\n", stptr->buffer[stptr->in]);
-            ++(stptr->in);
-            stptr->in %= 100;
-            sem_post(&(stptr->buffer_has_data));
-        }
+        produce_data(ptr);
+
+        // int i;
+        // for (i=0; i < 1000; ++i) 
+        // {
+        //     sem_wait(&(stptr->buffer_has_space));
+        //     stptr->buffer[stptr->in] = i;
+        //     printf("inside parent: %3d\n", stptr->buffer[stptr->in]);
+        //     ++(stptr->in);
+        //     stptr->in %= 100;
+        //     sem_post(&(stptr->buffer_has_data));
+        // }
     }
     else
     {   // child : CONSUMER
         print_str("child begin !!!\n");
-        int i;
-        for (i=0; i < 1000; ++i)
-        {
-            sem_wait(&(stptr->buffer_has_data));
-            printf("\tchild: %3d\n", stptr->buffer[stptr->out]);         
-            ++(stptr->out);
-            stptr->out %= 100;
-            sem_post(&(stptr->buffer_has_space));
-        }
+        consume_data(ptr);
+        
+        // int i;
+        // for (i=0; i < 1000; ++i)
+        // {
+        //     sem_wait(&(stptr->buffer_has_data));
+        //     printf("\tchild: %3d\n", stptr->buffer[stptr->out]);         
+        //     ++(stptr->out);
+        //     stptr->out %= 100;
+        //     sem_post(&(stptr->buffer_has_space));
+        // }
 
         /*
          *  The main process was forked previously, 
@@ -203,7 +214,11 @@ int main()
     }
 
     /* wait until the child process to exit */
-    wait(0);
+    if ((i_wait = wait(0)) == -1) {
+        perror("ERROR: unexpected error occured on child process exit\n");
+        exit(EXIT_FAILURE);
+    }
+    print_str("child process exit OK!");
 
     /*
      *  Clean-up code for parent process
@@ -237,14 +252,37 @@ int main()
     return 0;
 }
 
-void print_int(int i) 
-{ 
-    printf("%d\n", i); 
+/*******************************************************************************
+ * Name of Function:    initiate_variables
+ * Purpose:             initiate the variables resided inside the shared memory 
+ *                      the only parameter is type (void*) which points to the
+ *                      shared memory object
+ * Parameters:          (void*)
+ * Return Value:        --
+ * Calls to:            sem_init, memset
+ * Called from:         main    (file: producer_consumer_shared_memory_main.c)
+ * 
+ * Method:              1. reset var 'in',
+ *                         which is pointing the index for a new data 
+ *                         to be produced and enqueued
+ *                      2. reset var 'out',
+ *                         which is pointing the first data to be consumed
+ *                      3. reset var 'buffer'
+ *                         whole contents inside buffer is reset to -1
+ *                      (sem_init function initiate "unnamed semaphore")
+ *                      4. init semaphore condition variable 'buffer_has_space'
+ *                         to 100 which indicates how many more data
+ *                         can be produced
+ *                      5. init semaphore condition variable 'buffer_has_data'
+ *                         to 0 which indicates how many data is awaiting
+ *                         to be consumed
+ ******************************************************************************/
+void initiate_variables(void* ptr) {
+    shared_buffer_struct* stptr = (shared_buffer_struct*) ptr;
+
+    stptr->in = 0;
+    stptr->out = 0;
+    memset(stptr->buffer, -1, sizeof(int) * BUF_SZ);
+    sem_init(&(stptr->buffer_has_space), 1, BUF_SZ);
+    sem_init(&(stptr->buffer_has_data), 1, ZERO);
 }
-
-void print_str(const char * string) 
-{ 
-    printf("%s\n", string); 
-}
-
-
