@@ -1,12 +1,12 @@
 Terminal Command Examples
 
-<BUILD> 
+[ BUILD ]
   (in the root directory of project)
 $ mkdir build && cd build && cmake ..
 $ make
 $ ./01_Producer_Consumer
 
-<Clear> 
+[ Clear ]
   (in the build directory)
 $ cd .. && rm -rf build/
 
