@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/yks93/Documents/assignments/Operating_System/02_posix_timer_triggered_thread_management_system/include/print_functions.h
+iostream
+-
+
+/home/yks93/Documents/assignments/Operating_System/02_posix_timer_triggered_thread_management_system/include/pthread_management_with_time_trigger.h
+vector
+-
+cstring
+-
+ctime
+-
+pthread.h
+-
+unistd.h
+-
+signal.h
+-
+time.h
+-
+sys/types.h
+-
+print_functions.h
+/home/yks93/Documents/assignments/Operating_System/02_posix_timer_triggered_thread_management_system/include/print_functions.h
+
+/home/yks93/Documents/assignments/Operating_System/02_posix_timer_triggered_thread_management_system/src/print_functions.cpp
+../include/print_functions.h
+/home/yks93/Documents/assignments/Operating_System/02_posix_timer_triggered_thread_management_system/include/print_functions.h
+
+/home/yks93/Documents/assignments/Operating_System/02_posix_timer_triggered_thread_management_system/src/pthread_management_with_time_trigger.cpp
+../include/pthread_management_with_time_trigger.h
+/home/yks93/Documents/assignments/Operating_System/02_posix_timer_triggered_thread_management_system/include/pthread_management_with_time_trigger.h
+
