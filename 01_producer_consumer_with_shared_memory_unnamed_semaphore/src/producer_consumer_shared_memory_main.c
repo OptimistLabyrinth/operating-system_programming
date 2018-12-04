@@ -1,5 +1,5 @@
 /*******************************************************************************
- * FILE:                producer_consumer_shared_memory.c
+ * FILE:                producer_consumer_shared_memory_main.c
  * TITLE:               Main program, 
  *                      multi-processing producer-consumer C code adopting 
  *                      POSIX unnamed semaphore for synchronization 
@@ -139,18 +139,8 @@ int main()
     }
     print_str("mmap OK");
 
-    /* cast the shared memory mapped pointer to the pointer of proper type */
-    // shared_buffer_struct* stptr = (shared_buffer_struct*) ptr;
-    // print_str("ptr casting");
-
     /* initialize the variables - in, out, buffer, 2 semaphore */
     initiate_variables(ptr);
-
-    // stptr->in = 0;      print_int(stptr->in);
-    // stptr->out = 0;     print_int(stptr->out);
-    // memset(stptr->buffer, -1, sizeof(int) * 100);
-    // sem_init(&(stptr->buffer_has_space), 1, 100);
-    // sem_init(&(stptr->buffer_has_data), 1, 0);
 
     /* fork a process */
     if ((pid = fork()) < 0) {
@@ -161,32 +151,11 @@ int main()
     {   // parent : PRODUCER
         print_str("parent begin !!!\n");
         produce_data(ptr);
-
-        // int i;
-        // for (i=0; i < 1000; ++i) 
-        // {
-        //     sem_wait(&(stptr->buffer_has_space));
-        //     stptr->buffer[stptr->in] = i;
-        //     printf("inside parent: %3d\n", stptr->buffer[stptr->in]);
-        //     ++(stptr->in);
-        //     stptr->in %= 100;
-        //     sem_post(&(stptr->buffer_has_data));
-        // }
     }
     else
     {   // child : CONSUMER
         print_str("child begin !!!\n");
         consume_data(ptr);
-        
-        // int i;
-        // for (i=0; i < 1000; ++i)
-        // {
-        //     sem_wait(&(stptr->buffer_has_data));
-        //     printf("\tchild: %3d\n", stptr->buffer[stptr->out]);         
-        //     ++(stptr->out);
-        //     stptr->out %= 100;
-        //     sem_post(&(stptr->buffer_has_space));
-        // }
 
         /*
          *  The main process was forked previously, 

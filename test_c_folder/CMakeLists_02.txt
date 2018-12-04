@@ -1,0 +1,18 @@
+cmake_minimum_required (VERSION 3.0) 
+
+project(SIGNAL_CATCHER_EXAMPLE)
+
+set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g -std=c11 -Wall")
+
+set (INCLUDE_DIRS ${PROJECT_SOURCE_DIR}/include)
+
+set (SOURCE_FILES
+    src/print_functions.c
+    src/signal_example.c
+)
+
+add_executable (signal_ex ${SOURCE_FILES})
+
+target_link_libraries(signal_ex
+    pthread
+)

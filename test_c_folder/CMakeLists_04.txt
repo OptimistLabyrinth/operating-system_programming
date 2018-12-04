@@ -1,0 +1,19 @@
+cmake_minimum_required (VERSION 3.0) 
+
+project(pthread_mutex_test)
+
+set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g -std=c11 -Wall")
+
+set (INCLUDE_DIRS ${PROJECT_SOURCE_DIR}/include)
+
+set (SOURCE_FILESSS
+    src/print_functions.c
+    src/pthread_mutex_test.c
+)
+
+add_executable (p_mutex_ex ${SOURCE_FILESSS})
+
+target_link_libraries(p_mutex_ex
+    pthread
+    rt
+)

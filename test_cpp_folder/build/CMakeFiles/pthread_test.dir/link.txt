@@ -1,0 +1,1 @@
+/usr/bin/c++    -g -std=c++14 -Wall   CMakeFiles/pthread_test.dir/src/posix_thread_test.cpp.o  -o pthread_test -rdynamic -lpthread -lrt 

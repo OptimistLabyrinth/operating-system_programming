@@ -2,23 +2,22 @@
 
 #define COUNT 3
 
-int position_in_array;
+// pthread_mutex_t API_Mutex;
+// std::vector<pthread_cond_t> COND_array;
+
+// std::vector<TCB> TCB_array;
+// std::unordered_map<pthread_t, int> index_table;
+// int position_in_array;
+// pthread_mutex_t mutex_TCB;
+// pthread_cond_t cond_TCB;
+
 pthread_t threads[COUNT];
 data_for_mgd_thr d_thread[COUNT];
-timer_t TM_thread[COUNT];
 
+timer_t TM_thread[COUNT];
 data_for_cond_signal d_arg[COUNT];
 
 int rv;
-
-// sigset_t sset;
-
-// int i_array[COUNT];
-// data params[COUNT];
-// sig_hdl_arg thread_arg;
-
-int G;
-pthread_t PT[4];
 
 
 
@@ -51,6 +50,7 @@ int initialize_variables(void)
     }
     
     TCB_array.resize(COUNT, TCB{0,0,0});
+    index_table.reserve(COUNT);
 
     return 1;
 }
@@ -65,18 +65,18 @@ void execution(void)
 
         d_arg[i].index = i;
         d_arg[i].which_type = TIMER_FOR_COND_SIGNAL_HANDLER;
-        create_posix_timer(TIMER_FOR_COND_SIGNAL_HANDLER, reinterpret_cast<void*>(&d_arg[i]));
+        create_posix_timer(reinterpret_cast<void*>(&d_arg[i]));
     }
 }
 
-int create_posix_timer(uint type, void* arg)
+int create_posix_timer(void* arg)
 {
     event ev;
     t_spec it;
 
     ev.sigev_notify = SIGEV_THREAD;
     ev.sigev_notify_function = [](sigval_t) -> void {};
-    ev.sigev_notify_attributes = NULL;
+    ev.sigev_notify_attributes = nullptr;
     ev.sigev_value.sival_ptr = arg;
     // timer_create(...);
 
@@ -86,17 +86,18 @@ int create_posix_timer(uint type, void* arg)
     it.it_interval.tv_nsec = 0;
     // timer_settime(...);
 
-    switch (type)
+    auto x = reinterpret_cast<data_for_cond_signal*>(arg);
+
+    switch (x->which_type)
     {
         case TIMER_FOR_COND_SIGNAL_HANDLER:
         {
-            auto x = reinterpret_cast<data_for_cond_signal*>(arg);
             ev.sigev_notify_function = periodic_handler;
             timer_create(CLOCK_REALTIME, &ev, &TM_thread[x->index]);
 
-            it.it_value.tv_nsec = static_cast<long>(10) * MILLISECOND;
-            it.it_interval.tv_nsec = static_cast<long>(10) * MILLISECOND;
-            timer_settime(&TM_thread[x->index], 0, &it, NULL);
+            it.it_value.tv_nsec = 10L * MILLISECOND;
+            it.it_interval.tv_nsec = 10L * MILLISECOND;
+            timer_settime(TM_thread[x->index], 0, &it, NULL);
             break;
         }
         default:
@@ -115,7 +116,7 @@ void* thread_to_be_managed(void* arg)
 
     tt_thread_register(x, y);
     int pos = -1;
-    while ((pos =tt_thread_wait_invocation(y)) != -1) {
+    while ((pos = tt_thread_wait_invocation(y)) != -1) {
         time_t curtime;
         time(&curtime);
         std::string S = "";
@@ -133,6 +134,7 @@ int tt_thread_register(period_t period, pthread_t tid)
     TCB_array[position_in_array].tid = tid;
     TCB_array[position_in_array].period = period;
     TCB_array[position_in_array].time_left_to_invoke = period;
+    index_table[tid] = position_in_array;
     print(TCB_array[position_in_array].period);
     ++position_in_array;
     pthread_mutex_unlock(&API_Mutex);
@@ -143,13 +145,7 @@ int tt_thread_register(period_t period, pthread_t tid)
 int tt_thread_wait_invocation(pthread_t tid)
 {
 
-    int idx = -1;
-    for (int i=0; i < COUNT; ++i) {
-        if (TCB_array[i].tid == tid) {
-            idx = i;
-            break;
-        }
-    }
+    uint idx = index_table[tid];
 
     pthread_mutex_lock(&API_Mutex);
     pthread_cond_wait(&COND_array[idx], &API_Mutex);
@@ -171,130 +167,3 @@ void periodic_handler(sigval_t arg)
     }
     pthread_mutex_unlock(&API_Mutex);
 }
-
-
-
-
-
-
-
-// void create_posix_timer(void)
-// {
-//     timer_t timerid;
-//     struct sigevent sigev;
-//     struct itimerspec itval, oitval;
-//     // struct sigaction newact;
-    
-//     // sigemptyset(&newact.sa_mask);
-//     // newact.sa_flags = SA_SIGINFO;
-//     // newact.sa_sigaction = periodic_handler;
-//     // sigaction(SIGRTMIN, &newact, NULL);
-
-//     sigev.sigev_notify = SIGEV_THREAD;
-//     sigev.sigev_notify_function = periodic_handler;
-//     sigev.sigev_notify_attributes = NULL;
-//     timer_create(CLOCK_REALTIME, &sigev, &timerid);
-    
-//     itval.it_value.tv_sec = 0;
-//     itval.it_value.tv_nsec = static_cast<long> (MILLISECOND);
-//     itval.it_interval.tv_sec = 0;
-//     itval.it_interval.tv_nsec = static_cast<long> (MILLISECOND);
-//     timer_settime(timerid, 0, &itval, &oitval);
-// }
-
-
-
-
-
-
-
-// *************************************************************************************** //
-// void test_signal_handling(void)
-// {
-//     // sigemptyset(&sset);
-//     // sigaddset(&sset, SIGRTMIN_def);
-//     // sigaddset(&sset, SIGRTMIN_PLUS_1_def);
-//     // sigaddset(&sset, SIGRTMIN_PLUS_2_def);
-//     // pthread_sigmask(SIG_BLOCK, &sset, NULL);
-    
-//     pthread_create(&thread_arg.tid, NULL, pth_sig_hdl, reinterpret_cast<void*>(&thread_arg));
-
-//     for (int i=0; i < COUNT; ++i) {
-//         params[i].index = i;
-//         i_array[i] = static_cast<int>(DIV/(i+1));
-//         ptimer_start(reinterpret_cast<void*>(&params[i]));
-//     }
-
-//     while(1) 
-//     {
-//         print("OK ");
-//         pause();
-//     }
-
-//     return;
-// }
-
-// void ptimer_start(void* arg)
-// {
-//     event ev;
-//     t_spec it;
-//     auto index = (reinterpret_cast<data*>(arg))->index;
-
-//     ev.sigev_value.sival_ptr = arg;
-//     ev.sigev_notify = SIGEV_THREAD;
-//     ev.sigev_notify_function = tm_thread;
-//     ev.sigev_notify_attributes = NULL;
-//     timer_create(CLOCK_REALTIME, &ev, &TM[index]);
-
-//     it.it_value.tv_sec = 1;
-//     it.it_value.tv_nsec = 0;
-//     it.it_interval.tv_sec = 1 * (index + 1);
-//     it.it_interval.tv_nsec = 0;
-//     timer_settime(TM[index], 0, &it, NULL);
-// }
-
-// void tm_thread(sigval_t arg)
-// {
-//     auto index = (reinterpret_cast<data*>(arg.sival_ptr))->index;
-//     auto n_overrun = timer_getoverrun(TM[index]);
-//     if (n_overrun >= 1) {
-//         std::cerr << "Signal Overrun exists... program exit :(";
-//         exit(EXIT_FAILURE);
-//     }
-
-//     print("tm_thread called..." + std::to_string(index+1) 
-//             + "\ti_array[" + std::to_string(index) + "] = " + std::to_string(i_array[index]) 
-//             + " ");
-
-//     if ((--i_array[index]) <= 0)
-//         timer_delete(TM[index]);
-
-//     pthread_exit(NULL);
-// }
-
-// void* pth_sig_hdl(void* arg)
-// {
-//     while(1) 
-//     {
-//         sigwait(&sset, &reinterpret_cast<sig_hdl_arg*>(arg)->signal_number);
-
-//         switch (reinterpret_cast<sig_hdl_arg*>(arg)->signal_number)
-//         {
-//             case SIGRTMIN_def:
-//                 print("\t\tSIGRTMIN caught!");
-//                 break;
-
-//             case SIGRTMIN_PLUS_1_def:
-//                 print("\t\tSIGRTMIN+1 caught!!");
-//                 break;
-
-//             case SIGRTMIN_PLUS_2_def:
-//                 print("\t\tSIGRTMIN+2 caught!!!");
-//                 break;
-
-//             default:
-//                 print("\t\tsomething wrong happend");
-//         }
-//     }
-// }
-// *************************************************************************************** //

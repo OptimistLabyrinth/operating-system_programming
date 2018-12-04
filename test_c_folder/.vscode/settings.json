@@ -1,0 +1,9 @@
+{
+    "files.associations": {
+        "posix_timer_example.h": "c",
+        "signal.h": "c",
+        "types.h": "c",
+        "time.h": "c",
+        "siginfo.h": "c"
+    }
+}

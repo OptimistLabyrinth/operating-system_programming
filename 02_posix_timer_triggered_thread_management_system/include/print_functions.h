@@ -6,7 +6,7 @@
 void print(void);
 
 template <typename T> 
-void print(T msg, std::string end="\n")
+void print(const T& msg, const std::string& end="\n")
 {
     std::cout << msg << end;
 }

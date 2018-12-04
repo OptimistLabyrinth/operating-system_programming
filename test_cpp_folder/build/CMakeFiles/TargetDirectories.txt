@@ -1,0 +1,3 @@
+/home/yks93/Documents/assignments/Operating_System/test_cpp_folder/build/CMakeFiles/edit_cache.dir
+/home/yks93/Documents/assignments/Operating_System/test_cpp_folder/build/CMakeFiles/rebuild_cache.dir
+/home/yks93/Documents/assignments/Operating_System/test_cpp_folder/build/CMakeFiles/pthread_test.dir

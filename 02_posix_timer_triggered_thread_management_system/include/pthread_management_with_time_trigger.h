@@ -2,6 +2,7 @@
 #define ___PTHREAD_MANAGEMENT_WITH_TIME_TRIGGER__83f68d7d_2525_4a77_ac5a_1c28d54241bc__H___
 
 #include <vector>
+#include <unordered_map>
 #include <cstring>
 #include <ctime>
 
@@ -37,7 +38,6 @@ std::vector<pthread_cond_t> COND_array;
 
 using period_t = long;
 using event = struct sigevent;
-using action = struct sigaction;
 using t_spec = struct itimerspec;
 
 using TCB = struct TCB;
@@ -49,7 +49,8 @@ typedef struct TCB {
 } TCB;
 
 std::vector<TCB> TCB_array;
-auto index_TCB = 0;
+std::unordered_map<pthread_t, uint> index_table;
+uint position_in_array;
 pthread_mutex_t mutex_TCB;
 pthread_cond_t cond_TCB;
 
@@ -76,7 +77,7 @@ int initialize_variables(void);
 
 void execution(void);
 
-int create_posix_timer(uint, void*);
+int create_posix_timer(void*);
 
 void* thread_to_be_managed(void*);
 int tt_thread_register(int64_t, pthread_t);
@@ -91,25 +92,3 @@ void periodic_handler(sigval_t);
 #endif /* ___PTHREAD_MANAGEMENT_WITH_TIME_TRIGGER__83f68d7d_2525_4a77_ac5a_1c28d54241bc__H___ */
 
 // #define _POSIX_C_SOURCE 200809L
-
-
-
-
-
-// struct sival_ptr_Data {
-//     int index;
-// };
-// using data = struct sival_ptr_Data;
-
-// struct signal_handler_thread_argument {
-//     pthread_t tid;
-//     int signal_number;
-// };
-// using sig_hdl_arg = struct signal_handler_thread_argument;
-
-// ******************************** //
-// void test_signal_handling(void);
-// void ptimer_start(void*);
-// void tm_thread(sigval_t);
-// void* pth_sig_hdl(void*);
-// ******************************** //
