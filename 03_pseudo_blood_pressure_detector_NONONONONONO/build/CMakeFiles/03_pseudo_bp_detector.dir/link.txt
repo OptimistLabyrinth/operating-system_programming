@@ -1,0 +1,1 @@
+/usr/bin/c++    -g -std=c++14 -Wall   CMakeFiles/03_pseudo_bp_detector.dir/src/print_functions.cpp.o CMakeFiles/03_pseudo_bp_detector.dir/src/pthread_management_with_time_trigger.cpp.o CMakeFiles/03_pseudo_bp_detector.dir/src/pseudo_blood_pressure_detector.cpp.o CMakeFiles/03_pseudo_bp_detector.dir/src/main_controller.cpp.o  -o 03_pseudo_bp_detector -rdynamic -lpthread -lrt 

@@ -3,6 +3,8 @@
         "stdio.h": "c",
         "producer_consumer_shared_memory_main.h": "c",
         "print_functions.h": "c",
-        "producer_semaphore.h": "c"
+        "producer_semaphore.h": "c",
+        "iostream": "c",
+        "string": "cpp"
     }
 }

@@ -1,3 +1,3 @@
 /home/yks93/Documents/assignments/Operating_System/02_posix_timer_triggered_thread_management_system/build/CMakeFiles/edit_cache.dir
 /home/yks93/Documents/assignments/Operating_System/02_posix_timer_triggered_thread_management_system/build/CMakeFiles/rebuild_cache.dir
-/home/yks93/Documents/assignments/Operating_System/02_posix_timer_triggered_thread_management_system/build/CMakeFiles/02_trig_pth_mgnt.dir
+/home/yks93/Documents/assignments/Operating_System/02_posix_timer_triggered_thread_management_system/build/CMakeFiles/02_pth_mng_copy.dir

@@ -11,11 +11,12 @@ include_directories(${INCLUDE_DIRS})
 set(SOURCE_FILES 
     ${PROJECT_SOURCE_DIR}/src/print_functions.cpp
     ${PROJECT_SOURCE_DIR}/src/pthread_management_with_time_trigger.cpp
+    ${PROJECT_SOURCE_DIR}/src/main_thread_executor.cpp
 )
 
-add_executable (02_trig_pth_mgnt ${SOURCE_FILES})
+add_executable (02_pth_mng_copy ${SOURCE_FILES})
 
-target_link_libraries(02_trig_pth_mgnt
+target_link_libraries(02_pth_mng_copy
     pthread
     rt
 )

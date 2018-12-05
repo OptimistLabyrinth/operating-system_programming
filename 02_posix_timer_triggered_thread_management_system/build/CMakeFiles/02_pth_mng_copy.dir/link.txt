@@ -1,0 +1,1 @@
+/usr/bin/c++    -g -std=gnu++14 -Wall   CMakeFiles/02_pth_mng_copy.dir/src/print_functions.cpp.o CMakeFiles/02_pth_mng_copy.dir/src/pthread_management_with_time_trigger.cpp.o CMakeFiles/02_pth_mng_copy.dir/src/main_thread_executor.cpp.o  -o 02_pth_mng_copy -rdynamic -lpthread -lrt 

@@ -111,17 +111,44 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named 02_trig_pth_mgnt
+# Target rules for targets named 02_pth_mng_copy
 
 # Build rule for target.
-02_trig_pth_mgnt: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 02_trig_pth_mgnt
-.PHONY : 02_trig_pth_mgnt
+02_pth_mng_copy: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 02_pth_mng_copy
+.PHONY : 02_pth_mng_copy
 
 # fast build rule for target.
-02_trig_pth_mgnt/fast:
-	$(MAKE) -f CMakeFiles/02_trig_pth_mgnt.dir/build.make CMakeFiles/02_trig_pth_mgnt.dir/build
-.PHONY : 02_trig_pth_mgnt/fast
+02_pth_mng_copy/fast:
+	$(MAKE) -f CMakeFiles/02_pth_mng_copy.dir/build.make CMakeFiles/02_pth_mng_copy.dir/build
+.PHONY : 02_pth_mng_copy/fast
+
+src/main_thread_executor.o: src/main_thread_executor.cpp.o
+
+.PHONY : src/main_thread_executor.o
+
+# target to build an object file
+src/main_thread_executor.cpp.o:
+	$(MAKE) -f CMakeFiles/02_pth_mng_copy.dir/build.make CMakeFiles/02_pth_mng_copy.dir/src/main_thread_executor.cpp.o
+.PHONY : src/main_thread_executor.cpp.o
+
+src/main_thread_executor.i: src/main_thread_executor.cpp.i
+
+.PHONY : src/main_thread_executor.i
+
+# target to preprocess a source file
+src/main_thread_executor.cpp.i:
+	$(MAKE) -f CMakeFiles/02_pth_mng_copy.dir/build.make CMakeFiles/02_pth_mng_copy.dir/src/main_thread_executor.cpp.i
+.PHONY : src/main_thread_executor.cpp.i
+
+src/main_thread_executor.s: src/main_thread_executor.cpp.s
+
+.PHONY : src/main_thread_executor.s
+
+# target to generate assembly for a file
+src/main_thread_executor.cpp.s:
+	$(MAKE) -f CMakeFiles/02_pth_mng_copy.dir/build.make CMakeFiles/02_pth_mng_copy.dir/src/main_thread_executor.cpp.s
+.PHONY : src/main_thread_executor.cpp.s
 
 src/print_functions.o: src/print_functions.cpp.o
 
@@ -129,7 +156,7 @@ src/print_functions.o: src/print_functions.cpp.o
 
 # target to build an object file
 src/print_functions.cpp.o:
-	$(MAKE) -f CMakeFiles/02_trig_pth_mgnt.dir/build.make CMakeFiles/02_trig_pth_mgnt.dir/src/print_functions.cpp.o
+	$(MAKE) -f CMakeFiles/02_pth_mng_copy.dir/build.make CMakeFiles/02_pth_mng_copy.dir/src/print_functions.cpp.o
 .PHONY : src/print_functions.cpp.o
 
 src/print_functions.i: src/print_functions.cpp.i
@@ -138,7 +165,7 @@ src/print_functions.i: src/print_functions.cpp.i
 
 # target to preprocess a source file
 src/print_functions.cpp.i:
-	$(MAKE) -f CMakeFiles/02_trig_pth_mgnt.dir/build.make CMakeFiles/02_trig_pth_mgnt.dir/src/print_functions.cpp.i
+	$(MAKE) -f CMakeFiles/02_pth_mng_copy.dir/build.make CMakeFiles/02_pth_mng_copy.dir/src/print_functions.cpp.i
 .PHONY : src/print_functions.cpp.i
 
 src/print_functions.s: src/print_functions.cpp.s
@@ -147,7 +174,7 @@ src/print_functions.s: src/print_functions.cpp.s
 
 # target to generate assembly for a file
 src/print_functions.cpp.s:
-	$(MAKE) -f CMakeFiles/02_trig_pth_mgnt.dir/build.make CMakeFiles/02_trig_pth_mgnt.dir/src/print_functions.cpp.s
+	$(MAKE) -f CMakeFiles/02_pth_mng_copy.dir/build.make CMakeFiles/02_pth_mng_copy.dir/src/print_functions.cpp.s
 .PHONY : src/print_functions.cpp.s
 
 src/pthread_management_with_time_trigger.o: src/pthread_management_with_time_trigger.cpp.o
@@ -156,7 +183,7 @@ src/pthread_management_with_time_trigger.o: src/pthread_management_with_time_tri
 
 # target to build an object file
 src/pthread_management_with_time_trigger.cpp.o:
-	$(MAKE) -f CMakeFiles/02_trig_pth_mgnt.dir/build.make CMakeFiles/02_trig_pth_mgnt.dir/src/pthread_management_with_time_trigger.cpp.o
+	$(MAKE) -f CMakeFiles/02_pth_mng_copy.dir/build.make CMakeFiles/02_pth_mng_copy.dir/src/pthread_management_with_time_trigger.cpp.o
 .PHONY : src/pthread_management_with_time_trigger.cpp.o
 
 src/pthread_management_with_time_trigger.i: src/pthread_management_with_time_trigger.cpp.i
@@ -165,7 +192,7 @@ src/pthread_management_with_time_trigger.i: src/pthread_management_with_time_tri
 
 # target to preprocess a source file
 src/pthread_management_with_time_trigger.cpp.i:
-	$(MAKE) -f CMakeFiles/02_trig_pth_mgnt.dir/build.make CMakeFiles/02_trig_pth_mgnt.dir/src/pthread_management_with_time_trigger.cpp.i
+	$(MAKE) -f CMakeFiles/02_pth_mng_copy.dir/build.make CMakeFiles/02_pth_mng_copy.dir/src/pthread_management_with_time_trigger.cpp.i
 .PHONY : src/pthread_management_with_time_trigger.cpp.i
 
 src/pthread_management_with_time_trigger.s: src/pthread_management_with_time_trigger.cpp.s
@@ -174,7 +201,7 @@ src/pthread_management_with_time_trigger.s: src/pthread_management_with_time_tri
 
 # target to generate assembly for a file
 src/pthread_management_with_time_trigger.cpp.s:
-	$(MAKE) -f CMakeFiles/02_trig_pth_mgnt.dir/build.make CMakeFiles/02_trig_pth_mgnt.dir/src/pthread_management_with_time_trigger.cpp.s
+	$(MAKE) -f CMakeFiles/02_pth_mng_copy.dir/build.make CMakeFiles/02_pth_mng_copy.dir/src/pthread_management_with_time_trigger.cpp.s
 .PHONY : src/pthread_management_with_time_trigger.cpp.s
 
 # Help Target
@@ -185,7 +212,10 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... 02_trig_pth_mgnt"
+	@echo "... 02_pth_mng_copy"
+	@echo "... src/main_thread_executor.o"
+	@echo "... src/main_thread_executor.i"
+	@echo "... src/main_thread_executor.s"
 	@echo "... src/print_functions.o"
 	@echo "... src/print_functions.i"
 	@echo "... src/print_functions.s"
