@@ -1,3 +1,0 @@
-/home/yks93/Documents/assignments/Operating_System/03_pseudo_blood_pressure_detector_NONONONONONO/build/CMakeFiles/edit_cache.dir
-/home/yks93/Documents/assignments/Operating_System/03_pseudo_blood_pressure_detector_NONONONONONO/build/CMakeFiles/rebuild_cache.dir
-/home/yks93/Documents/assignments/Operating_System/03_pseudo_blood_pressure_detector_NONONONONONO/build/CMakeFiles/03_pseudo_bp_detector.dir

@@ -1,0 +1,1 @@
+/usr/bin/cc   -Wall   CMakeFiles/01_Producer_Consumer.dir/src/consumer_semaphore.c.o CMakeFiles/01_Producer_Consumer.dir/src/producer_semaphore.c.o CMakeFiles/01_Producer_Consumer.dir/src/print_functions.c.o CMakeFiles/01_Producer_Consumer.dir/src/producer_consumer_shared_memory_main.c.o  -o 01_Producer_Consumer -rdynamic -lpthread -lrt 

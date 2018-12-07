@@ -1,0 +1,12 @@
+#ifndef TT_THREAD_WAIT_INVOCATION__1f52cc61_3fcd_4500_94f8_da44462a0f9a__HPP___
+#define TT_THREAD_WAIT_INVOCATION__1f52cc61_3fcd_4500_94f8_da44462a0f9a__HPP___
+
+#include "static_ptttm_variables.hpp"
+
+
+
+void tt_thread_wait_invocation();
+
+
+
+#endif /* TT_THREAD_WAIT_INVOCATION__1f52cc61_3fcd_4500_94f8_da44462a0f9a__HPP___ */

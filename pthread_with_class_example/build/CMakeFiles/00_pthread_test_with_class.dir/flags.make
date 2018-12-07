@@ -6,5 +6,5 @@ CXX_FLAGS =  -g -std=c++14 -Wall
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/yks93/Documents/assignments/Operating_System/test_cpp_folder/include 
+CXX_INCLUDES = -I/home/yks93/Documents/assignments/Operating_System/pthread_with_class_example/include 
 

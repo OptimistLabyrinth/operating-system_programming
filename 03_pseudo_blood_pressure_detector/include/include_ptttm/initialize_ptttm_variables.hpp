@@ -1,0 +1,12 @@
+#ifndef INITIALIZE_PTTTM_VARIABLES__73ab003b_3bab_4dc1_ae30_498a94ff7f99__HPP___
+#define INITIALIZE_PTTTM_VARIABLES__73ab003b_3bab_4dc1_ae30_498a94ff7f99__HPP___
+
+#include "static_ptttm_variables.hpp"
+
+
+
+void initialize_ptttm_variables(void);
+
+
+
+#endif /* INITIALIZE_PTTTM_VARIABLES__73ab003b_3bab_4dc1_ae30_498a94ff7f99__HPP___ */

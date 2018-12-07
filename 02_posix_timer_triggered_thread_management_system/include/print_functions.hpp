@@ -1,9 +1,10 @@
-#ifndef PRINT_FUNCTIONS__96a81bc8_488e_406b_95b6_f66f06387851__H___
-#define PRINT_FUNCTIONS__96a81bc8_488e_406b_95b6_f66f06387851__H___
+#ifndef PRINT_FUNCTIONS__237216e1_b6da_45ec_bced_fe6d10f199a6__HPP___
+#define PRINT_FUNCTIONS__237216e1_b6da_45ec_bced_fe6d10f199a6__HPP___
 
 #include <iostream>
 
 void print(void);
+void perr(void);
 
 template <typename T> 
 void print(const T& msg, const std::string& end="\n")
@@ -11,4 +12,10 @@ void print(const T& msg, const std::string& end="\n")
     std::cout << msg << end;
 }
 
-#endif /* PRINT_FUNCTIONS__96a81bc8_488e_406b_95b6_f66f06387851__H___ */
+template <typename T>
+void perr(const T& msg, const std::string& end="\n")
+{
+    std::cerr << msg << end;
+}
+
+#endif /* PRINT_FUNCTIONS__237216e1_b6da_45ec_bced_fe6d10f199a6__HPP___ */

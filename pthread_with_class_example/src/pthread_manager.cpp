@@ -18,5 +18,9 @@ void Thread_Manager::create_new_thread(void* arg)
 {
     auto class_context = reinterpret_cast<CLASS_TEST*>(arg);
 
-    pthread_create( &(Thread_Manager::threads.at(Thread_Manager::get_pos_for_new_thread())), nullptr, &CLASS_TEST::execute_helper, class_context);
+    pthread_create( 
+        &(Thread_Manager::threads.at(Thread_Manager::get_pos_for_new_thread())), 
+        nullptr, 
+        &CLASS_TEST::execute_helper, 
+        class_context);
 }

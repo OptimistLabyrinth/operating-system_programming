@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/yks93/Documents/assignments/Operating_System/test_cpp_folder/src/main_thread_executor.cpp
+vector
+-
+queue
+-
+iostream
+-
+

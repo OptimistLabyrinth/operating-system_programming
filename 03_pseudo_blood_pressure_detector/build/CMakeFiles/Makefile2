@@ -60,39 +60,39 @@ CMAKE_SOURCE_DIR = /home/yks93/Documents/assignments/Operating_System/03_pseudo_
 CMAKE_BINARY_DIR = /home/yks93/Documents/assignments/Operating_System/03_pseudo_blood_pressure_detector/build
 
 #=============================================================================
-# Target rules for target CMakeFiles/03_pseudo_bp_detector.dir
+# Target rules for target CMakeFiles/03_pseudo_blood_pressure_detector.dir
 
 # All Build rule for target.
-CMakeFiles/03_pseudo_bp_detector.dir/all:
-	$(MAKE) -f CMakeFiles/03_pseudo_bp_detector.dir/build.make CMakeFiles/03_pseudo_bp_detector.dir/depend
-	$(MAKE) -f CMakeFiles/03_pseudo_bp_detector.dir/build.make CMakeFiles/03_pseudo_bp_detector.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/yks93/Documents/assignments/Operating_System/03_pseudo_blood_pressure_detector/build/CMakeFiles --progress-num=1,2,3,4,5 "Built target 03_pseudo_bp_detector"
-.PHONY : CMakeFiles/03_pseudo_bp_detector.dir/all
+CMakeFiles/03_pseudo_blood_pressure_detector.dir/all:
+	$(MAKE) -f CMakeFiles/03_pseudo_blood_pressure_detector.dir/build.make CMakeFiles/03_pseudo_blood_pressure_detector.dir/depend
+	$(MAKE) -f CMakeFiles/03_pseudo_blood_pressure_detector.dir/build.make CMakeFiles/03_pseudo_blood_pressure_detector.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/yks93/Documents/assignments/Operating_System/03_pseudo_blood_pressure_detector/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17 "Built target 03_pseudo_blood_pressure_detector"
+.PHONY : CMakeFiles/03_pseudo_blood_pressure_detector.dir/all
 
 # Include target in all.
-all: CMakeFiles/03_pseudo_bp_detector.dir/all
+all: CMakeFiles/03_pseudo_blood_pressure_detector.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/03_pseudo_bp_detector.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/yks93/Documents/assignments/Operating_System/03_pseudo_blood_pressure_detector/build/CMakeFiles 5
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/03_pseudo_bp_detector.dir/all
+CMakeFiles/03_pseudo_blood_pressure_detector.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/yks93/Documents/assignments/Operating_System/03_pseudo_blood_pressure_detector/build/CMakeFiles 17
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/03_pseudo_blood_pressure_detector.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/yks93/Documents/assignments/Operating_System/03_pseudo_blood_pressure_detector/build/CMakeFiles 0
-.PHONY : CMakeFiles/03_pseudo_bp_detector.dir/rule
+.PHONY : CMakeFiles/03_pseudo_blood_pressure_detector.dir/rule
 
 # Convenience name for target.
-03_pseudo_bp_detector: CMakeFiles/03_pseudo_bp_detector.dir/rule
+03_pseudo_blood_pressure_detector: CMakeFiles/03_pseudo_blood_pressure_detector.dir/rule
 
-.PHONY : 03_pseudo_bp_detector
-
-# clean rule for target.
-CMakeFiles/03_pseudo_bp_detector.dir/clean:
-	$(MAKE) -f CMakeFiles/03_pseudo_bp_detector.dir/build.make CMakeFiles/03_pseudo_bp_detector.dir/clean
-.PHONY : CMakeFiles/03_pseudo_bp_detector.dir/clean
+.PHONY : 03_pseudo_blood_pressure_detector
 
 # clean rule for target.
-clean: CMakeFiles/03_pseudo_bp_detector.dir/clean
+CMakeFiles/03_pseudo_blood_pressure_detector.dir/clean:
+	$(MAKE) -f CMakeFiles/03_pseudo_blood_pressure_detector.dir/build.make CMakeFiles/03_pseudo_blood_pressure_detector.dir/clean
+.PHONY : CMakeFiles/03_pseudo_blood_pressure_detector.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/03_pseudo_blood_pressure_detector.dir/clean
 
 .PHONY : clean
 

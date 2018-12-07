@@ -111,44 +111,44 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named 03_pseudo_bp_detector
+# Target rules for targets named 03_pseudo_blood_pressure_detector
 
 # Build rule for target.
-03_pseudo_bp_detector: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 03_pseudo_bp_detector
-.PHONY : 03_pseudo_bp_detector
+03_pseudo_blood_pressure_detector: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 03_pseudo_blood_pressure_detector
+.PHONY : 03_pseudo_blood_pressure_detector
 
 # fast build rule for target.
-03_pseudo_bp_detector/fast:
-	$(MAKE) -f CMakeFiles/03_pseudo_bp_detector.dir/build.make CMakeFiles/03_pseudo_bp_detector.dir/build
-.PHONY : 03_pseudo_bp_detector/fast
+03_pseudo_blood_pressure_detector/fast:
+	$(MAKE) -f CMakeFiles/03_pseudo_blood_pressure_detector.dir/build.make CMakeFiles/03_pseudo_blood_pressure_detector.dir/build
+.PHONY : 03_pseudo_blood_pressure_detector/fast
 
-src/main_controller.o: src/main_controller.cpp.o
+src/main_executor.o: src/main_executor.cpp.o
 
-.PHONY : src/main_controller.o
+.PHONY : src/main_executor.o
 
 # target to build an object file
-src/main_controller.cpp.o:
-	$(MAKE) -f CMakeFiles/03_pseudo_bp_detector.dir/build.make CMakeFiles/03_pseudo_bp_detector.dir/src/main_controller.cpp.o
-.PHONY : src/main_controller.cpp.o
+src/main_executor.cpp.o:
+	$(MAKE) -f CMakeFiles/03_pseudo_blood_pressure_detector.dir/build.make CMakeFiles/03_pseudo_blood_pressure_detector.dir/src/main_executor.cpp.o
+.PHONY : src/main_executor.cpp.o
 
-src/main_controller.i: src/main_controller.cpp.i
+src/main_executor.i: src/main_executor.cpp.i
 
-.PHONY : src/main_controller.i
+.PHONY : src/main_executor.i
 
 # target to preprocess a source file
-src/main_controller.cpp.i:
-	$(MAKE) -f CMakeFiles/03_pseudo_bp_detector.dir/build.make CMakeFiles/03_pseudo_bp_detector.dir/src/main_controller.cpp.i
-.PHONY : src/main_controller.cpp.i
+src/main_executor.cpp.i:
+	$(MAKE) -f CMakeFiles/03_pseudo_blood_pressure_detector.dir/build.make CMakeFiles/03_pseudo_blood_pressure_detector.dir/src/main_executor.cpp.i
+.PHONY : src/main_executor.cpp.i
 
-src/main_controller.s: src/main_controller.cpp.s
+src/main_executor.s: src/main_executor.cpp.s
 
-.PHONY : src/main_controller.s
+.PHONY : src/main_executor.s
 
 # target to generate assembly for a file
-src/main_controller.cpp.s:
-	$(MAKE) -f CMakeFiles/03_pseudo_bp_detector.dir/build.make CMakeFiles/03_pseudo_bp_detector.dir/src/main_controller.cpp.s
-.PHONY : src/main_controller.cpp.s
+src/main_executor.cpp.s:
+	$(MAKE) -f CMakeFiles/03_pseudo_blood_pressure_detector.dir/build.make CMakeFiles/03_pseudo_blood_pressure_detector.dir/src/main_executor.cpp.s
+.PHONY : src/main_executor.cpp.s
 
 src/print_functions.o: src/print_functions.cpp.o
 
@@ -156,7 +156,7 @@ src/print_functions.o: src/print_functions.cpp.o
 
 # target to build an object file
 src/print_functions.cpp.o:
-	$(MAKE) -f CMakeFiles/03_pseudo_bp_detector.dir/build.make CMakeFiles/03_pseudo_bp_detector.dir/src/print_functions.cpp.o
+	$(MAKE) -f CMakeFiles/03_pseudo_blood_pressure_detector.dir/build.make CMakeFiles/03_pseudo_blood_pressure_detector.dir/src/print_functions.cpp.o
 .PHONY : src/print_functions.cpp.o
 
 src/print_functions.i: src/print_functions.cpp.i
@@ -165,7 +165,7 @@ src/print_functions.i: src/print_functions.cpp.i
 
 # target to preprocess a source file
 src/print_functions.cpp.i:
-	$(MAKE) -f CMakeFiles/03_pseudo_bp_detector.dir/build.make CMakeFiles/03_pseudo_bp_detector.dir/src/print_functions.cpp.i
+	$(MAKE) -f CMakeFiles/03_pseudo_blood_pressure_detector.dir/build.make CMakeFiles/03_pseudo_blood_pressure_detector.dir/src/print_functions.cpp.i
 .PHONY : src/print_functions.cpp.i
 
 src/print_functions.s: src/print_functions.cpp.s
@@ -174,62 +174,386 @@ src/print_functions.s: src/print_functions.cpp.s
 
 # target to generate assembly for a file
 src/print_functions.cpp.s:
-	$(MAKE) -f CMakeFiles/03_pseudo_bp_detector.dir/build.make CMakeFiles/03_pseudo_bp_detector.dir/src/print_functions.cpp.s
+	$(MAKE) -f CMakeFiles/03_pseudo_blood_pressure_detector.dir/build.make CMakeFiles/03_pseudo_blood_pressure_detector.dir/src/print_functions.cpp.s
 .PHONY : src/print_functions.cpp.s
 
-src/pseudo_blood_pressure_detector.o: src/pseudo_blood_pressure_detector.cpp.o
+src/src_pbpd/bp_processing_thread.o: src/src_pbpd/bp_processing_thread.cpp.o
 
-.PHONY : src/pseudo_blood_pressure_detector.o
-
-# target to build an object file
-src/pseudo_blood_pressure_detector.cpp.o:
-	$(MAKE) -f CMakeFiles/03_pseudo_bp_detector.dir/build.make CMakeFiles/03_pseudo_bp_detector.dir/src/pseudo_blood_pressure_detector.cpp.o
-.PHONY : src/pseudo_blood_pressure_detector.cpp.o
-
-src/pseudo_blood_pressure_detector.i: src/pseudo_blood_pressure_detector.cpp.i
-
-.PHONY : src/pseudo_blood_pressure_detector.i
-
-# target to preprocess a source file
-src/pseudo_blood_pressure_detector.cpp.i:
-	$(MAKE) -f CMakeFiles/03_pseudo_bp_detector.dir/build.make CMakeFiles/03_pseudo_bp_detector.dir/src/pseudo_blood_pressure_detector.cpp.i
-.PHONY : src/pseudo_blood_pressure_detector.cpp.i
-
-src/pseudo_blood_pressure_detector.s: src/pseudo_blood_pressure_detector.cpp.s
-
-.PHONY : src/pseudo_blood_pressure_detector.s
-
-# target to generate assembly for a file
-src/pseudo_blood_pressure_detector.cpp.s:
-	$(MAKE) -f CMakeFiles/03_pseudo_bp_detector.dir/build.make CMakeFiles/03_pseudo_bp_detector.dir/src/pseudo_blood_pressure_detector.cpp.s
-.PHONY : src/pseudo_blood_pressure_detector.cpp.s
-
-src/pthread_management_with_time_trigger.o: src/pthread_management_with_time_trigger.cpp.o
-
-.PHONY : src/pthread_management_with_time_trigger.o
+.PHONY : src/src_pbpd/bp_processing_thread.o
 
 # target to build an object file
-src/pthread_management_with_time_trigger.cpp.o:
-	$(MAKE) -f CMakeFiles/03_pseudo_bp_detector.dir/build.make CMakeFiles/03_pseudo_bp_detector.dir/src/pthread_management_with_time_trigger.cpp.o
-.PHONY : src/pthread_management_with_time_trigger.cpp.o
+src/src_pbpd/bp_processing_thread.cpp.o:
+	$(MAKE) -f CMakeFiles/03_pseudo_blood_pressure_detector.dir/build.make CMakeFiles/03_pseudo_blood_pressure_detector.dir/src/src_pbpd/bp_processing_thread.cpp.o
+.PHONY : src/src_pbpd/bp_processing_thread.cpp.o
 
-src/pthread_management_with_time_trigger.i: src/pthread_management_with_time_trigger.cpp.i
+src/src_pbpd/bp_processing_thread.i: src/src_pbpd/bp_processing_thread.cpp.i
 
-.PHONY : src/pthread_management_with_time_trigger.i
+.PHONY : src/src_pbpd/bp_processing_thread.i
 
 # target to preprocess a source file
-src/pthread_management_with_time_trigger.cpp.i:
-	$(MAKE) -f CMakeFiles/03_pseudo_bp_detector.dir/build.make CMakeFiles/03_pseudo_bp_detector.dir/src/pthread_management_with_time_trigger.cpp.i
-.PHONY : src/pthread_management_with_time_trigger.cpp.i
+src/src_pbpd/bp_processing_thread.cpp.i:
+	$(MAKE) -f CMakeFiles/03_pseudo_blood_pressure_detector.dir/build.make CMakeFiles/03_pseudo_blood_pressure_detector.dir/src/src_pbpd/bp_processing_thread.cpp.i
+.PHONY : src/src_pbpd/bp_processing_thread.cpp.i
 
-src/pthread_management_with_time_trigger.s: src/pthread_management_with_time_trigger.cpp.s
+src/src_pbpd/bp_processing_thread.s: src/src_pbpd/bp_processing_thread.cpp.s
 
-.PHONY : src/pthread_management_with_time_trigger.s
+.PHONY : src/src_pbpd/bp_processing_thread.s
 
 # target to generate assembly for a file
-src/pthread_management_with_time_trigger.cpp.s:
-	$(MAKE) -f CMakeFiles/03_pseudo_bp_detector.dir/build.make CMakeFiles/03_pseudo_bp_detector.dir/src/pthread_management_with_time_trigger.cpp.s
-.PHONY : src/pthread_management_with_time_trigger.cpp.s
+src/src_pbpd/bp_processing_thread.cpp.s:
+	$(MAKE) -f CMakeFiles/03_pseudo_blood_pressure_detector.dir/build.make CMakeFiles/03_pseudo_blood_pressure_detector.dir/src/src_pbpd/bp_processing_thread.cpp.s
+.PHONY : src/src_pbpd/bp_processing_thread.cpp.s
+
+src/src_pbpd/data_acquisition_thread.o: src/src_pbpd/data_acquisition_thread.cpp.o
+
+.PHONY : src/src_pbpd/data_acquisition_thread.o
+
+# target to build an object file
+src/src_pbpd/data_acquisition_thread.cpp.o:
+	$(MAKE) -f CMakeFiles/03_pseudo_blood_pressure_detector.dir/build.make CMakeFiles/03_pseudo_blood_pressure_detector.dir/src/src_pbpd/data_acquisition_thread.cpp.o
+.PHONY : src/src_pbpd/data_acquisition_thread.cpp.o
+
+src/src_pbpd/data_acquisition_thread.i: src/src_pbpd/data_acquisition_thread.cpp.i
+
+.PHONY : src/src_pbpd/data_acquisition_thread.i
+
+# target to preprocess a source file
+src/src_pbpd/data_acquisition_thread.cpp.i:
+	$(MAKE) -f CMakeFiles/03_pseudo_blood_pressure_detector.dir/build.make CMakeFiles/03_pseudo_blood_pressure_detector.dir/src/src_pbpd/data_acquisition_thread.cpp.i
+.PHONY : src/src_pbpd/data_acquisition_thread.cpp.i
+
+src/src_pbpd/data_acquisition_thread.s: src/src_pbpd/data_acquisition_thread.cpp.s
+
+.PHONY : src/src_pbpd/data_acquisition_thread.s
+
+# target to generate assembly for a file
+src/src_pbpd/data_acquisition_thread.cpp.s:
+	$(MAKE) -f CMakeFiles/03_pseudo_blood_pressure_detector.dir/build.make CMakeFiles/03_pseudo_blood_pressure_detector.dir/src/src_pbpd/data_acquisition_thread.cpp.s
+.PHONY : src/src_pbpd/data_acquisition_thread.cpp.s
+
+src/src_pbpd/dequeue_bp_queue.o: src/src_pbpd/dequeue_bp_queue.cpp.o
+
+.PHONY : src/src_pbpd/dequeue_bp_queue.o
+
+# target to build an object file
+src/src_pbpd/dequeue_bp_queue.cpp.o:
+	$(MAKE) -f CMakeFiles/03_pseudo_blood_pressure_detector.dir/build.make CMakeFiles/03_pseudo_blood_pressure_detector.dir/src/src_pbpd/dequeue_bp_queue.cpp.o
+.PHONY : src/src_pbpd/dequeue_bp_queue.cpp.o
+
+src/src_pbpd/dequeue_bp_queue.i: src/src_pbpd/dequeue_bp_queue.cpp.i
+
+.PHONY : src/src_pbpd/dequeue_bp_queue.i
+
+# target to preprocess a source file
+src/src_pbpd/dequeue_bp_queue.cpp.i:
+	$(MAKE) -f CMakeFiles/03_pseudo_blood_pressure_detector.dir/build.make CMakeFiles/03_pseudo_blood_pressure_detector.dir/src/src_pbpd/dequeue_bp_queue.cpp.i
+.PHONY : src/src_pbpd/dequeue_bp_queue.cpp.i
+
+src/src_pbpd/dequeue_bp_queue.s: src/src_pbpd/dequeue_bp_queue.cpp.s
+
+.PHONY : src/src_pbpd/dequeue_bp_queue.s
+
+# target to generate assembly for a file
+src/src_pbpd/dequeue_bp_queue.cpp.s:
+	$(MAKE) -f CMakeFiles/03_pseudo_blood_pressure_detector.dir/build.make CMakeFiles/03_pseudo_blood_pressure_detector.dir/src/src_pbpd/dequeue_bp_queue.cpp.s
+.PHONY : src/src_pbpd/dequeue_bp_queue.cpp.s
+
+src/src_pbpd/enqueue_bp_queue.o: src/src_pbpd/enqueue_bp_queue.cpp.o
+
+.PHONY : src/src_pbpd/enqueue_bp_queue.o
+
+# target to build an object file
+src/src_pbpd/enqueue_bp_queue.cpp.o:
+	$(MAKE) -f CMakeFiles/03_pseudo_blood_pressure_detector.dir/build.make CMakeFiles/03_pseudo_blood_pressure_detector.dir/src/src_pbpd/enqueue_bp_queue.cpp.o
+.PHONY : src/src_pbpd/enqueue_bp_queue.cpp.o
+
+src/src_pbpd/enqueue_bp_queue.i: src/src_pbpd/enqueue_bp_queue.cpp.i
+
+.PHONY : src/src_pbpd/enqueue_bp_queue.i
+
+# target to preprocess a source file
+src/src_pbpd/enqueue_bp_queue.cpp.i:
+	$(MAKE) -f CMakeFiles/03_pseudo_blood_pressure_detector.dir/build.make CMakeFiles/03_pseudo_blood_pressure_detector.dir/src/src_pbpd/enqueue_bp_queue.cpp.i
+.PHONY : src/src_pbpd/enqueue_bp_queue.cpp.i
+
+src/src_pbpd/enqueue_bp_queue.s: src/src_pbpd/enqueue_bp_queue.cpp.s
+
+.PHONY : src/src_pbpd/enqueue_bp_queue.s
+
+# target to generate assembly for a file
+src/src_pbpd/enqueue_bp_queue.cpp.s:
+	$(MAKE) -f CMakeFiles/03_pseudo_blood_pressure_detector.dir/build.make CMakeFiles/03_pseudo_blood_pressure_detector.dir/src/src_pbpd/enqueue_bp_queue.cpp.s
+.PHONY : src/src_pbpd/enqueue_bp_queue.cpp.s
+
+src/src_pbpd/initialize_pbpd_variables.o: src/src_pbpd/initialize_pbpd_variables.cpp.o
+
+.PHONY : src/src_pbpd/initialize_pbpd_variables.o
+
+# target to build an object file
+src/src_pbpd/initialize_pbpd_variables.cpp.o:
+	$(MAKE) -f CMakeFiles/03_pseudo_blood_pressure_detector.dir/build.make CMakeFiles/03_pseudo_blood_pressure_detector.dir/src/src_pbpd/initialize_pbpd_variables.cpp.o
+.PHONY : src/src_pbpd/initialize_pbpd_variables.cpp.o
+
+src/src_pbpd/initialize_pbpd_variables.i: src/src_pbpd/initialize_pbpd_variables.cpp.i
+
+.PHONY : src/src_pbpd/initialize_pbpd_variables.i
+
+# target to preprocess a source file
+src/src_pbpd/initialize_pbpd_variables.cpp.i:
+	$(MAKE) -f CMakeFiles/03_pseudo_blood_pressure_detector.dir/build.make CMakeFiles/03_pseudo_blood_pressure_detector.dir/src/src_pbpd/initialize_pbpd_variables.cpp.i
+.PHONY : src/src_pbpd/initialize_pbpd_variables.cpp.i
+
+src/src_pbpd/initialize_pbpd_variables.s: src/src_pbpd/initialize_pbpd_variables.cpp.s
+
+.PHONY : src/src_pbpd/initialize_pbpd_variables.s
+
+# target to generate assembly for a file
+src/src_pbpd/initialize_pbpd_variables.cpp.s:
+	$(MAKE) -f CMakeFiles/03_pseudo_blood_pressure_detector.dir/build.make CMakeFiles/03_pseudo_blood_pressure_detector.dir/src/src_pbpd/initialize_pbpd_variables.cpp.s
+.PHONY : src/src_pbpd/initialize_pbpd_variables.cpp.s
+
+src/src_pbpd/periodic_alarm_clock.o: src/src_pbpd/periodic_alarm_clock.cpp.o
+
+.PHONY : src/src_pbpd/periodic_alarm_clock.o
+
+# target to build an object file
+src/src_pbpd/periodic_alarm_clock.cpp.o:
+	$(MAKE) -f CMakeFiles/03_pseudo_blood_pressure_detector.dir/build.make CMakeFiles/03_pseudo_blood_pressure_detector.dir/src/src_pbpd/periodic_alarm_clock.cpp.o
+.PHONY : src/src_pbpd/periodic_alarm_clock.cpp.o
+
+src/src_pbpd/periodic_alarm_clock.i: src/src_pbpd/periodic_alarm_clock.cpp.i
+
+.PHONY : src/src_pbpd/periodic_alarm_clock.i
+
+# target to preprocess a source file
+src/src_pbpd/periodic_alarm_clock.cpp.i:
+	$(MAKE) -f CMakeFiles/03_pseudo_blood_pressure_detector.dir/build.make CMakeFiles/03_pseudo_blood_pressure_detector.dir/src/src_pbpd/periodic_alarm_clock.cpp.i
+.PHONY : src/src_pbpd/periodic_alarm_clock.cpp.i
+
+src/src_pbpd/periodic_alarm_clock.s: src/src_pbpd/periodic_alarm_clock.cpp.s
+
+.PHONY : src/src_pbpd/periodic_alarm_clock.s
+
+# target to generate assembly for a file
+src/src_pbpd/periodic_alarm_clock.cpp.s:
+	$(MAKE) -f CMakeFiles/03_pseudo_blood_pressure_detector.dir/build.make CMakeFiles/03_pseudo_blood_pressure_detector.dir/src/src_pbpd/periodic_alarm_clock.cpp.s
+.PHONY : src/src_pbpd/periodic_alarm_clock.cpp.s
+
+src/src_pbpd/pseudo_blood_pressure_generator.o: src/src_pbpd/pseudo_blood_pressure_generator.cpp.o
+
+.PHONY : src/src_pbpd/pseudo_blood_pressure_generator.o
+
+# target to build an object file
+src/src_pbpd/pseudo_blood_pressure_generator.cpp.o:
+	$(MAKE) -f CMakeFiles/03_pseudo_blood_pressure_detector.dir/build.make CMakeFiles/03_pseudo_blood_pressure_detector.dir/src/src_pbpd/pseudo_blood_pressure_generator.cpp.o
+.PHONY : src/src_pbpd/pseudo_blood_pressure_generator.cpp.o
+
+src/src_pbpd/pseudo_blood_pressure_generator.i: src/src_pbpd/pseudo_blood_pressure_generator.cpp.i
+
+.PHONY : src/src_pbpd/pseudo_blood_pressure_generator.i
+
+# target to preprocess a source file
+src/src_pbpd/pseudo_blood_pressure_generator.cpp.i:
+	$(MAKE) -f CMakeFiles/03_pseudo_blood_pressure_detector.dir/build.make CMakeFiles/03_pseudo_blood_pressure_detector.dir/src/src_pbpd/pseudo_blood_pressure_generator.cpp.i
+.PHONY : src/src_pbpd/pseudo_blood_pressure_generator.cpp.i
+
+src/src_pbpd/pseudo_blood_pressure_generator.s: src/src_pbpd/pseudo_blood_pressure_generator.cpp.s
+
+.PHONY : src/src_pbpd/pseudo_blood_pressure_generator.s
+
+# target to generate assembly for a file
+src/src_pbpd/pseudo_blood_pressure_generator.cpp.s:
+	$(MAKE) -f CMakeFiles/03_pseudo_blood_pressure_detector.dir/build.make CMakeFiles/03_pseudo_blood_pressure_detector.dir/src/src_pbpd/pseudo_blood_pressure_generator.cpp.s
+.PHONY : src/src_pbpd/pseudo_blood_pressure_generator.cpp.s
+
+src/src_pbpd/static_pbpd_variables.o: src/src_pbpd/static_pbpd_variables.cpp.o
+
+.PHONY : src/src_pbpd/static_pbpd_variables.o
+
+# target to build an object file
+src/src_pbpd/static_pbpd_variables.cpp.o:
+	$(MAKE) -f CMakeFiles/03_pseudo_blood_pressure_detector.dir/build.make CMakeFiles/03_pseudo_blood_pressure_detector.dir/src/src_pbpd/static_pbpd_variables.cpp.o
+.PHONY : src/src_pbpd/static_pbpd_variables.cpp.o
+
+src/src_pbpd/static_pbpd_variables.i: src/src_pbpd/static_pbpd_variables.cpp.i
+
+.PHONY : src/src_pbpd/static_pbpd_variables.i
+
+# target to preprocess a source file
+src/src_pbpd/static_pbpd_variables.cpp.i:
+	$(MAKE) -f CMakeFiles/03_pseudo_blood_pressure_detector.dir/build.make CMakeFiles/03_pseudo_blood_pressure_detector.dir/src/src_pbpd/static_pbpd_variables.cpp.i
+.PHONY : src/src_pbpd/static_pbpd_variables.cpp.i
+
+src/src_pbpd/static_pbpd_variables.s: src/src_pbpd/static_pbpd_variables.cpp.s
+
+.PHONY : src/src_pbpd/static_pbpd_variables.s
+
+# target to generate assembly for a file
+src/src_pbpd/static_pbpd_variables.cpp.s:
+	$(MAKE) -f CMakeFiles/03_pseudo_blood_pressure_detector.dir/build.make CMakeFiles/03_pseudo_blood_pressure_detector.dir/src/src_pbpd/static_pbpd_variables.cpp.s
+.PHONY : src/src_pbpd/static_pbpd_variables.cpp.s
+
+src/src_ptttm/create_posix_timer.o: src/src_ptttm/create_posix_timer.cpp.o
+
+.PHONY : src/src_ptttm/create_posix_timer.o
+
+# target to build an object file
+src/src_ptttm/create_posix_timer.cpp.o:
+	$(MAKE) -f CMakeFiles/03_pseudo_blood_pressure_detector.dir/build.make CMakeFiles/03_pseudo_blood_pressure_detector.dir/src/src_ptttm/create_posix_timer.cpp.o
+.PHONY : src/src_ptttm/create_posix_timer.cpp.o
+
+src/src_ptttm/create_posix_timer.i: src/src_ptttm/create_posix_timer.cpp.i
+
+.PHONY : src/src_ptttm/create_posix_timer.i
+
+# target to preprocess a source file
+src/src_ptttm/create_posix_timer.cpp.i:
+	$(MAKE) -f CMakeFiles/03_pseudo_blood_pressure_detector.dir/build.make CMakeFiles/03_pseudo_blood_pressure_detector.dir/src/src_ptttm/create_posix_timer.cpp.i
+.PHONY : src/src_ptttm/create_posix_timer.cpp.i
+
+src/src_ptttm/create_posix_timer.s: src/src_ptttm/create_posix_timer.cpp.s
+
+.PHONY : src/src_ptttm/create_posix_timer.s
+
+# target to generate assembly for a file
+src/src_ptttm/create_posix_timer.cpp.s:
+	$(MAKE) -f CMakeFiles/03_pseudo_blood_pressure_detector.dir/build.make CMakeFiles/03_pseudo_blood_pressure_detector.dir/src/src_ptttm/create_posix_timer.cpp.s
+.PHONY : src/src_ptttm/create_posix_timer.cpp.s
+
+src/src_ptttm/create_pthread.o: src/src_ptttm/create_pthread.cpp.o
+
+.PHONY : src/src_ptttm/create_pthread.o
+
+# target to build an object file
+src/src_ptttm/create_pthread.cpp.o:
+	$(MAKE) -f CMakeFiles/03_pseudo_blood_pressure_detector.dir/build.make CMakeFiles/03_pseudo_blood_pressure_detector.dir/src/src_ptttm/create_pthread.cpp.o
+.PHONY : src/src_ptttm/create_pthread.cpp.o
+
+src/src_ptttm/create_pthread.i: src/src_ptttm/create_pthread.cpp.i
+
+.PHONY : src/src_ptttm/create_pthread.i
+
+# target to preprocess a source file
+src/src_ptttm/create_pthread.cpp.i:
+	$(MAKE) -f CMakeFiles/03_pseudo_blood_pressure_detector.dir/build.make CMakeFiles/03_pseudo_blood_pressure_detector.dir/src/src_ptttm/create_pthread.cpp.i
+.PHONY : src/src_ptttm/create_pthread.cpp.i
+
+src/src_ptttm/create_pthread.s: src/src_ptttm/create_pthread.cpp.s
+
+.PHONY : src/src_ptttm/create_pthread.s
+
+# target to generate assembly for a file
+src/src_ptttm/create_pthread.cpp.s:
+	$(MAKE) -f CMakeFiles/03_pseudo_blood_pressure_detector.dir/build.make CMakeFiles/03_pseudo_blood_pressure_detector.dir/src/src_ptttm/create_pthread.cpp.s
+.PHONY : src/src_ptttm/create_pthread.cpp.s
+
+src/src_ptttm/initialize_ptttm_variables.o: src/src_ptttm/initialize_ptttm_variables.cpp.o
+
+.PHONY : src/src_ptttm/initialize_ptttm_variables.o
+
+# target to build an object file
+src/src_ptttm/initialize_ptttm_variables.cpp.o:
+	$(MAKE) -f CMakeFiles/03_pseudo_blood_pressure_detector.dir/build.make CMakeFiles/03_pseudo_blood_pressure_detector.dir/src/src_ptttm/initialize_ptttm_variables.cpp.o
+.PHONY : src/src_ptttm/initialize_ptttm_variables.cpp.o
+
+src/src_ptttm/initialize_ptttm_variables.i: src/src_ptttm/initialize_ptttm_variables.cpp.i
+
+.PHONY : src/src_ptttm/initialize_ptttm_variables.i
+
+# target to preprocess a source file
+src/src_ptttm/initialize_ptttm_variables.cpp.i:
+	$(MAKE) -f CMakeFiles/03_pseudo_blood_pressure_detector.dir/build.make CMakeFiles/03_pseudo_blood_pressure_detector.dir/src/src_ptttm/initialize_ptttm_variables.cpp.i
+.PHONY : src/src_ptttm/initialize_ptttm_variables.cpp.i
+
+src/src_ptttm/initialize_ptttm_variables.s: src/src_ptttm/initialize_ptttm_variables.cpp.s
+
+.PHONY : src/src_ptttm/initialize_ptttm_variables.s
+
+# target to generate assembly for a file
+src/src_ptttm/initialize_ptttm_variables.cpp.s:
+	$(MAKE) -f CMakeFiles/03_pseudo_blood_pressure_detector.dir/build.make CMakeFiles/03_pseudo_blood_pressure_detector.dir/src/src_ptttm/initialize_ptttm_variables.cpp.s
+.PHONY : src/src_ptttm/initialize_ptttm_variables.cpp.s
+
+src/src_ptttm/static_ptttm_variables.o: src/src_ptttm/static_ptttm_variables.cpp.o
+
+.PHONY : src/src_ptttm/static_ptttm_variables.o
+
+# target to build an object file
+src/src_ptttm/static_ptttm_variables.cpp.o:
+	$(MAKE) -f CMakeFiles/03_pseudo_blood_pressure_detector.dir/build.make CMakeFiles/03_pseudo_blood_pressure_detector.dir/src/src_ptttm/static_ptttm_variables.cpp.o
+.PHONY : src/src_ptttm/static_ptttm_variables.cpp.o
+
+src/src_ptttm/static_ptttm_variables.i: src/src_ptttm/static_ptttm_variables.cpp.i
+
+.PHONY : src/src_ptttm/static_ptttm_variables.i
+
+# target to preprocess a source file
+src/src_ptttm/static_ptttm_variables.cpp.i:
+	$(MAKE) -f CMakeFiles/03_pseudo_blood_pressure_detector.dir/build.make CMakeFiles/03_pseudo_blood_pressure_detector.dir/src/src_ptttm/static_ptttm_variables.cpp.i
+.PHONY : src/src_ptttm/static_ptttm_variables.cpp.i
+
+src/src_ptttm/static_ptttm_variables.s: src/src_ptttm/static_ptttm_variables.cpp.s
+
+.PHONY : src/src_ptttm/static_ptttm_variables.s
+
+# target to generate assembly for a file
+src/src_ptttm/static_ptttm_variables.cpp.s:
+	$(MAKE) -f CMakeFiles/03_pseudo_blood_pressure_detector.dir/build.make CMakeFiles/03_pseudo_blood_pressure_detector.dir/src/src_ptttm/static_ptttm_variables.cpp.s
+.PHONY : src/src_ptttm/static_ptttm_variables.cpp.s
+
+src/src_ptttm/tt_thread_register.o: src/src_ptttm/tt_thread_register.cpp.o
+
+.PHONY : src/src_ptttm/tt_thread_register.o
+
+# target to build an object file
+src/src_ptttm/tt_thread_register.cpp.o:
+	$(MAKE) -f CMakeFiles/03_pseudo_blood_pressure_detector.dir/build.make CMakeFiles/03_pseudo_blood_pressure_detector.dir/src/src_ptttm/tt_thread_register.cpp.o
+.PHONY : src/src_ptttm/tt_thread_register.cpp.o
+
+src/src_ptttm/tt_thread_register.i: src/src_ptttm/tt_thread_register.cpp.i
+
+.PHONY : src/src_ptttm/tt_thread_register.i
+
+# target to preprocess a source file
+src/src_ptttm/tt_thread_register.cpp.i:
+	$(MAKE) -f CMakeFiles/03_pseudo_blood_pressure_detector.dir/build.make CMakeFiles/03_pseudo_blood_pressure_detector.dir/src/src_ptttm/tt_thread_register.cpp.i
+.PHONY : src/src_ptttm/tt_thread_register.cpp.i
+
+src/src_ptttm/tt_thread_register.s: src/src_ptttm/tt_thread_register.cpp.s
+
+.PHONY : src/src_ptttm/tt_thread_register.s
+
+# target to generate assembly for a file
+src/src_ptttm/tt_thread_register.cpp.s:
+	$(MAKE) -f CMakeFiles/03_pseudo_blood_pressure_detector.dir/build.make CMakeFiles/03_pseudo_blood_pressure_detector.dir/src/src_ptttm/tt_thread_register.cpp.s
+.PHONY : src/src_ptttm/tt_thread_register.cpp.s
+
+src/src_ptttm/tt_thread_wait_invocation.o: src/src_ptttm/tt_thread_wait_invocation.cpp.o
+
+.PHONY : src/src_ptttm/tt_thread_wait_invocation.o
+
+# target to build an object file
+src/src_ptttm/tt_thread_wait_invocation.cpp.o:
+	$(MAKE) -f CMakeFiles/03_pseudo_blood_pressure_detector.dir/build.make CMakeFiles/03_pseudo_blood_pressure_detector.dir/src/src_ptttm/tt_thread_wait_invocation.cpp.o
+.PHONY : src/src_ptttm/tt_thread_wait_invocation.cpp.o
+
+src/src_ptttm/tt_thread_wait_invocation.i: src/src_ptttm/tt_thread_wait_invocation.cpp.i
+
+.PHONY : src/src_ptttm/tt_thread_wait_invocation.i
+
+# target to preprocess a source file
+src/src_ptttm/tt_thread_wait_invocation.cpp.i:
+	$(MAKE) -f CMakeFiles/03_pseudo_blood_pressure_detector.dir/build.make CMakeFiles/03_pseudo_blood_pressure_detector.dir/src/src_ptttm/tt_thread_wait_invocation.cpp.i
+.PHONY : src/src_ptttm/tt_thread_wait_invocation.cpp.i
+
+src/src_ptttm/tt_thread_wait_invocation.s: src/src_ptttm/tt_thread_wait_invocation.cpp.s
+
+.PHONY : src/src_ptttm/tt_thread_wait_invocation.s
+
+# target to generate assembly for a file
+src/src_ptttm/tt_thread_wait_invocation.cpp.s:
+	$(MAKE) -f CMakeFiles/03_pseudo_blood_pressure_detector.dir/build.make CMakeFiles/03_pseudo_blood_pressure_detector.dir/src/src_ptttm/tt_thread_wait_invocation.cpp.s
+.PHONY : src/src_ptttm/tt_thread_wait_invocation.cpp.s
 
 # Help Target
 help:
@@ -239,19 +563,55 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... 03_pseudo_bp_detector"
-	@echo "... src/main_controller.o"
-	@echo "... src/main_controller.i"
-	@echo "... src/main_controller.s"
+	@echo "... 03_pseudo_blood_pressure_detector"
+	@echo "... src/main_executor.o"
+	@echo "... src/main_executor.i"
+	@echo "... src/main_executor.s"
 	@echo "... src/print_functions.o"
 	@echo "... src/print_functions.i"
 	@echo "... src/print_functions.s"
-	@echo "... src/pseudo_blood_pressure_detector.o"
-	@echo "... src/pseudo_blood_pressure_detector.i"
-	@echo "... src/pseudo_blood_pressure_detector.s"
-	@echo "... src/pthread_management_with_time_trigger.o"
-	@echo "... src/pthread_management_with_time_trigger.i"
-	@echo "... src/pthread_management_with_time_trigger.s"
+	@echo "... src/src_pbpd/bp_processing_thread.o"
+	@echo "... src/src_pbpd/bp_processing_thread.i"
+	@echo "... src/src_pbpd/bp_processing_thread.s"
+	@echo "... src/src_pbpd/data_acquisition_thread.o"
+	@echo "... src/src_pbpd/data_acquisition_thread.i"
+	@echo "... src/src_pbpd/data_acquisition_thread.s"
+	@echo "... src/src_pbpd/dequeue_bp_queue.o"
+	@echo "... src/src_pbpd/dequeue_bp_queue.i"
+	@echo "... src/src_pbpd/dequeue_bp_queue.s"
+	@echo "... src/src_pbpd/enqueue_bp_queue.o"
+	@echo "... src/src_pbpd/enqueue_bp_queue.i"
+	@echo "... src/src_pbpd/enqueue_bp_queue.s"
+	@echo "... src/src_pbpd/initialize_pbpd_variables.o"
+	@echo "... src/src_pbpd/initialize_pbpd_variables.i"
+	@echo "... src/src_pbpd/initialize_pbpd_variables.s"
+	@echo "... src/src_pbpd/periodic_alarm_clock.o"
+	@echo "... src/src_pbpd/periodic_alarm_clock.i"
+	@echo "... src/src_pbpd/periodic_alarm_clock.s"
+	@echo "... src/src_pbpd/pseudo_blood_pressure_generator.o"
+	@echo "... src/src_pbpd/pseudo_blood_pressure_generator.i"
+	@echo "... src/src_pbpd/pseudo_blood_pressure_generator.s"
+	@echo "... src/src_pbpd/static_pbpd_variables.o"
+	@echo "... src/src_pbpd/static_pbpd_variables.i"
+	@echo "... src/src_pbpd/static_pbpd_variables.s"
+	@echo "... src/src_ptttm/create_posix_timer.o"
+	@echo "... src/src_ptttm/create_posix_timer.i"
+	@echo "... src/src_ptttm/create_posix_timer.s"
+	@echo "... src/src_ptttm/create_pthread.o"
+	@echo "... src/src_ptttm/create_pthread.i"
+	@echo "... src/src_ptttm/create_pthread.s"
+	@echo "... src/src_ptttm/initialize_ptttm_variables.o"
+	@echo "... src/src_ptttm/initialize_ptttm_variables.i"
+	@echo "... src/src_ptttm/initialize_ptttm_variables.s"
+	@echo "... src/src_ptttm/static_ptttm_variables.o"
+	@echo "... src/src_ptttm/static_ptttm_variables.i"
+	@echo "... src/src_ptttm/static_ptttm_variables.s"
+	@echo "... src/src_ptttm/tt_thread_register.o"
+	@echo "... src/src_ptttm/tt_thread_register.i"
+	@echo "... src/src_ptttm/tt_thread_register.s"
+	@echo "... src/src_ptttm/tt_thread_wait_invocation.o"
+	@echo "... src/src_ptttm/tt_thread_wait_invocation.i"
+	@echo "... src/src_ptttm/tt_thread_wait_invocation.s"
 .PHONY : help
 
 

@@ -1,0 +1,12 @@
+#ifndef INITIALIZE_PBPD_VARIABLES__37046ba2_2aa1_4b2b_b391_0d25467b5481__HPP___
+#define INITIALIZE_PBPD_VARIABLES__37046ba2_2aa1_4b2b_b391_0d25467b5481__HPP___
+
+#include "static_pbpd_variables.hpp"
+
+
+
+void initialize_pbpd_variables(void);
+
+
+
+#endif /* INITIALIZE_PBPD_VARIABLES__37046ba2_2aa1_4b2b_b391_0d25467b5481__HPP___ */

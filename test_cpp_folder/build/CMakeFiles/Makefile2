@@ -60,39 +60,39 @@ CMAKE_SOURCE_DIR = /home/yks93/Documents/assignments/Operating_System/test_cpp_f
 CMAKE_BINARY_DIR = /home/yks93/Documents/assignments/Operating_System/test_cpp_folder/build
 
 #=============================================================================
-# Target rules for target CMakeFiles/pthread_test.dir
+# Target rules for target CMakeFiles/09_test.dir
 
 # All Build rule for target.
-CMakeFiles/pthread_test.dir/all:
-	$(MAKE) -f CMakeFiles/pthread_test.dir/build.make CMakeFiles/pthread_test.dir/depend
-	$(MAKE) -f CMakeFiles/pthread_test.dir/build.make CMakeFiles/pthread_test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/yks93/Documents/assignments/Operating_System/test_cpp_folder/build/CMakeFiles --progress-num=1,2 "Built target pthread_test"
-.PHONY : CMakeFiles/pthread_test.dir/all
+CMakeFiles/09_test.dir/all:
+	$(MAKE) -f CMakeFiles/09_test.dir/build.make CMakeFiles/09_test.dir/depend
+	$(MAKE) -f CMakeFiles/09_test.dir/build.make CMakeFiles/09_test.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/yks93/Documents/assignments/Operating_System/test_cpp_folder/build/CMakeFiles --progress-num=1,2 "Built target 09_test"
+.PHONY : CMakeFiles/09_test.dir/all
 
 # Include target in all.
-all: CMakeFiles/pthread_test.dir/all
+all: CMakeFiles/09_test.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/pthread_test.dir/rule: cmake_check_build_system
+CMakeFiles/09_test.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/yks93/Documents/assignments/Operating_System/test_cpp_folder/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/pthread_test.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/09_test.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/yks93/Documents/assignments/Operating_System/test_cpp_folder/build/CMakeFiles 0
-.PHONY : CMakeFiles/pthread_test.dir/rule
+.PHONY : CMakeFiles/09_test.dir/rule
 
 # Convenience name for target.
-pthread_test: CMakeFiles/pthread_test.dir/rule
+09_test: CMakeFiles/09_test.dir/rule
 
-.PHONY : pthread_test
-
-# clean rule for target.
-CMakeFiles/pthread_test.dir/clean:
-	$(MAKE) -f CMakeFiles/pthread_test.dir/build.make CMakeFiles/pthread_test.dir/clean
-.PHONY : CMakeFiles/pthread_test.dir/clean
+.PHONY : 09_test
 
 # clean rule for target.
-clean: CMakeFiles/pthread_test.dir/clean
+CMakeFiles/09_test.dir/clean:
+	$(MAKE) -f CMakeFiles/09_test.dir/build.make CMakeFiles/09_test.dir/clean
+.PHONY : CMakeFiles/09_test.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/09_test.dir/clean
 
 .PHONY : clean
 

@@ -41,5 +41,5 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/03_pseudo_bp_detector.dir/DependInfo.cmake"
+  "CMakeFiles/03_pseudo_blood_pressure_detector.dir/DependInfo.cmake"
   )

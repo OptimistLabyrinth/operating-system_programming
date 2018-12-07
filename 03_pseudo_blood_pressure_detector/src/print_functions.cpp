@@ -4,3 +4,8 @@ void print(void)
 { 
     std::cout << "\n"; 
 }
+
+void perr(void)
+{
+    std::cerr << "\n";
+}

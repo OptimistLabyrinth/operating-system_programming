@@ -56,17 +56,6 @@ CMAKE_BINARY_DIR = /home/yks93/Documents/assignments/Operating_System/02_posix_t
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/usr/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -77,6 +66,17 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -111,44 +111,152 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named 02_pth_mng_copy
+# Target rules for targets named 02_pm_tt
 
 # Build rule for target.
-02_pth_mng_copy: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 02_pth_mng_copy
-.PHONY : 02_pth_mng_copy
+02_pm_tt: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 02_pm_tt
+.PHONY : 02_pm_tt
 
 # fast build rule for target.
-02_pth_mng_copy/fast:
-	$(MAKE) -f CMakeFiles/02_pth_mng_copy.dir/build.make CMakeFiles/02_pth_mng_copy.dir/build
-.PHONY : 02_pth_mng_copy/fast
+02_pm_tt/fast:
+	$(MAKE) -f CMakeFiles/02_pm_tt.dir/build.make CMakeFiles/02_pm_tt.dir/build
+.PHONY : 02_pm_tt/fast
 
-src/main_thread_executor.o: src/main_thread_executor.cpp.o
+src/create_posix_timer.o: src/create_posix_timer.cpp.o
 
-.PHONY : src/main_thread_executor.o
+.PHONY : src/create_posix_timer.o
 
 # target to build an object file
-src/main_thread_executor.cpp.o:
-	$(MAKE) -f CMakeFiles/02_pth_mng_copy.dir/build.make CMakeFiles/02_pth_mng_copy.dir/src/main_thread_executor.cpp.o
-.PHONY : src/main_thread_executor.cpp.o
+src/create_posix_timer.cpp.o:
+	$(MAKE) -f CMakeFiles/02_pm_tt.dir/build.make CMakeFiles/02_pm_tt.dir/src/create_posix_timer.cpp.o
+.PHONY : src/create_posix_timer.cpp.o
 
-src/main_thread_executor.i: src/main_thread_executor.cpp.i
+src/create_posix_timer.i: src/create_posix_timer.cpp.i
 
-.PHONY : src/main_thread_executor.i
+.PHONY : src/create_posix_timer.i
 
 # target to preprocess a source file
-src/main_thread_executor.cpp.i:
-	$(MAKE) -f CMakeFiles/02_pth_mng_copy.dir/build.make CMakeFiles/02_pth_mng_copy.dir/src/main_thread_executor.cpp.i
-.PHONY : src/main_thread_executor.cpp.i
+src/create_posix_timer.cpp.i:
+	$(MAKE) -f CMakeFiles/02_pm_tt.dir/build.make CMakeFiles/02_pm_tt.dir/src/create_posix_timer.cpp.i
+.PHONY : src/create_posix_timer.cpp.i
 
-src/main_thread_executor.s: src/main_thread_executor.cpp.s
+src/create_posix_timer.s: src/create_posix_timer.cpp.s
 
-.PHONY : src/main_thread_executor.s
+.PHONY : src/create_posix_timer.s
 
 # target to generate assembly for a file
-src/main_thread_executor.cpp.s:
-	$(MAKE) -f CMakeFiles/02_pth_mng_copy.dir/build.make CMakeFiles/02_pth_mng_copy.dir/src/main_thread_executor.cpp.s
-.PHONY : src/main_thread_executor.cpp.s
+src/create_posix_timer.cpp.s:
+	$(MAKE) -f CMakeFiles/02_pm_tt.dir/build.make CMakeFiles/02_pm_tt.dir/src/create_posix_timer.cpp.s
+.PHONY : src/create_posix_timer.cpp.s
+
+src/create_pthread.o: src/create_pthread.cpp.o
+
+.PHONY : src/create_pthread.o
+
+# target to build an object file
+src/create_pthread.cpp.o:
+	$(MAKE) -f CMakeFiles/02_pm_tt.dir/build.make CMakeFiles/02_pm_tt.dir/src/create_pthread.cpp.o
+.PHONY : src/create_pthread.cpp.o
+
+src/create_pthread.i: src/create_pthread.cpp.i
+
+.PHONY : src/create_pthread.i
+
+# target to preprocess a source file
+src/create_pthread.cpp.i:
+	$(MAKE) -f CMakeFiles/02_pm_tt.dir/build.make CMakeFiles/02_pm_tt.dir/src/create_pthread.cpp.i
+.PHONY : src/create_pthread.cpp.i
+
+src/create_pthread.s: src/create_pthread.cpp.s
+
+.PHONY : src/create_pthread.s
+
+# target to generate assembly for a file
+src/create_pthread.cpp.s:
+	$(MAKE) -f CMakeFiles/02_pm_tt.dir/build.make CMakeFiles/02_pm_tt.dir/src/create_pthread.cpp.s
+.PHONY : src/create_pthread.cpp.s
+
+src/initialize_variables.o: src/initialize_variables.cpp.o
+
+.PHONY : src/initialize_variables.o
+
+# target to build an object file
+src/initialize_variables.cpp.o:
+	$(MAKE) -f CMakeFiles/02_pm_tt.dir/build.make CMakeFiles/02_pm_tt.dir/src/initialize_variables.cpp.o
+.PHONY : src/initialize_variables.cpp.o
+
+src/initialize_variables.i: src/initialize_variables.cpp.i
+
+.PHONY : src/initialize_variables.i
+
+# target to preprocess a source file
+src/initialize_variables.cpp.i:
+	$(MAKE) -f CMakeFiles/02_pm_tt.dir/build.make CMakeFiles/02_pm_tt.dir/src/initialize_variables.cpp.i
+.PHONY : src/initialize_variables.cpp.i
+
+src/initialize_variables.s: src/initialize_variables.cpp.s
+
+.PHONY : src/initialize_variables.s
+
+# target to generate assembly for a file
+src/initialize_variables.cpp.s:
+	$(MAKE) -f CMakeFiles/02_pm_tt.dir/build.make CMakeFiles/02_pm_tt.dir/src/initialize_variables.cpp.s
+.PHONY : src/initialize_variables.cpp.s
+
+src/main_executor.o: src/main_executor.cpp.o
+
+.PHONY : src/main_executor.o
+
+# target to build an object file
+src/main_executor.cpp.o:
+	$(MAKE) -f CMakeFiles/02_pm_tt.dir/build.make CMakeFiles/02_pm_tt.dir/src/main_executor.cpp.o
+.PHONY : src/main_executor.cpp.o
+
+src/main_executor.i: src/main_executor.cpp.i
+
+.PHONY : src/main_executor.i
+
+# target to preprocess a source file
+src/main_executor.cpp.i:
+	$(MAKE) -f CMakeFiles/02_pm_tt.dir/build.make CMakeFiles/02_pm_tt.dir/src/main_executor.cpp.i
+.PHONY : src/main_executor.cpp.i
+
+src/main_executor.s: src/main_executor.cpp.s
+
+.PHONY : src/main_executor.s
+
+# target to generate assembly for a file
+src/main_executor.cpp.s:
+	$(MAKE) -f CMakeFiles/02_pm_tt.dir/build.make CMakeFiles/02_pm_tt.dir/src/main_executor.cpp.s
+.PHONY : src/main_executor.cpp.s
+
+src/periodic_handler.o: src/periodic_handler.cpp.o
+
+.PHONY : src/periodic_handler.o
+
+# target to build an object file
+src/periodic_handler.cpp.o:
+	$(MAKE) -f CMakeFiles/02_pm_tt.dir/build.make CMakeFiles/02_pm_tt.dir/src/periodic_handler.cpp.o
+.PHONY : src/periodic_handler.cpp.o
+
+src/periodic_handler.i: src/periodic_handler.cpp.i
+
+.PHONY : src/periodic_handler.i
+
+# target to preprocess a source file
+src/periodic_handler.cpp.i:
+	$(MAKE) -f CMakeFiles/02_pm_tt.dir/build.make CMakeFiles/02_pm_tt.dir/src/periodic_handler.cpp.i
+.PHONY : src/periodic_handler.cpp.i
+
+src/periodic_handler.s: src/periodic_handler.cpp.s
+
+.PHONY : src/periodic_handler.s
+
+# target to generate assembly for a file
+src/periodic_handler.cpp.s:
+	$(MAKE) -f CMakeFiles/02_pm_tt.dir/build.make CMakeFiles/02_pm_tt.dir/src/periodic_handler.cpp.s
+.PHONY : src/periodic_handler.cpp.s
 
 src/print_functions.o: src/print_functions.cpp.o
 
@@ -156,7 +264,7 @@ src/print_functions.o: src/print_functions.cpp.o
 
 # target to build an object file
 src/print_functions.cpp.o:
-	$(MAKE) -f CMakeFiles/02_pth_mng_copy.dir/build.make CMakeFiles/02_pth_mng_copy.dir/src/print_functions.cpp.o
+	$(MAKE) -f CMakeFiles/02_pm_tt.dir/build.make CMakeFiles/02_pm_tt.dir/src/print_functions.cpp.o
 .PHONY : src/print_functions.cpp.o
 
 src/print_functions.i: src/print_functions.cpp.i
@@ -165,7 +273,7 @@ src/print_functions.i: src/print_functions.cpp.i
 
 # target to preprocess a source file
 src/print_functions.cpp.i:
-	$(MAKE) -f CMakeFiles/02_pth_mng_copy.dir/build.make CMakeFiles/02_pth_mng_copy.dir/src/print_functions.cpp.i
+	$(MAKE) -f CMakeFiles/02_pm_tt.dir/build.make CMakeFiles/02_pm_tt.dir/src/print_functions.cpp.i
 .PHONY : src/print_functions.cpp.i
 
 src/print_functions.s: src/print_functions.cpp.s
@@ -174,35 +282,116 @@ src/print_functions.s: src/print_functions.cpp.s
 
 # target to generate assembly for a file
 src/print_functions.cpp.s:
-	$(MAKE) -f CMakeFiles/02_pth_mng_copy.dir/build.make CMakeFiles/02_pth_mng_copy.dir/src/print_functions.cpp.s
+	$(MAKE) -f CMakeFiles/02_pm_tt.dir/build.make CMakeFiles/02_pm_tt.dir/src/print_functions.cpp.s
 .PHONY : src/print_functions.cpp.s
 
-src/pthread_management_with_time_trigger.o: src/pthread_management_with_time_trigger.cpp.o
+src/static_variables.o: src/static_variables.cpp.o
 
-.PHONY : src/pthread_management_with_time_trigger.o
+.PHONY : src/static_variables.o
 
 # target to build an object file
-src/pthread_management_with_time_trigger.cpp.o:
-	$(MAKE) -f CMakeFiles/02_pth_mng_copy.dir/build.make CMakeFiles/02_pth_mng_copy.dir/src/pthread_management_with_time_trigger.cpp.o
-.PHONY : src/pthread_management_with_time_trigger.cpp.o
+src/static_variables.cpp.o:
+	$(MAKE) -f CMakeFiles/02_pm_tt.dir/build.make CMakeFiles/02_pm_tt.dir/src/static_variables.cpp.o
+.PHONY : src/static_variables.cpp.o
 
-src/pthread_management_with_time_trigger.i: src/pthread_management_with_time_trigger.cpp.i
+src/static_variables.i: src/static_variables.cpp.i
 
-.PHONY : src/pthread_management_with_time_trigger.i
+.PHONY : src/static_variables.i
 
 # target to preprocess a source file
-src/pthread_management_with_time_trigger.cpp.i:
-	$(MAKE) -f CMakeFiles/02_pth_mng_copy.dir/build.make CMakeFiles/02_pth_mng_copy.dir/src/pthread_management_with_time_trigger.cpp.i
-.PHONY : src/pthread_management_with_time_trigger.cpp.i
+src/static_variables.cpp.i:
+	$(MAKE) -f CMakeFiles/02_pm_tt.dir/build.make CMakeFiles/02_pm_tt.dir/src/static_variables.cpp.i
+.PHONY : src/static_variables.cpp.i
 
-src/pthread_management_with_time_trigger.s: src/pthread_management_with_time_trigger.cpp.s
+src/static_variables.s: src/static_variables.cpp.s
 
-.PHONY : src/pthread_management_with_time_trigger.s
+.PHONY : src/static_variables.s
 
 # target to generate assembly for a file
-src/pthread_management_with_time_trigger.cpp.s:
-	$(MAKE) -f CMakeFiles/02_pth_mng_copy.dir/build.make CMakeFiles/02_pth_mng_copy.dir/src/pthread_management_with_time_trigger.cpp.s
-.PHONY : src/pthread_management_with_time_trigger.cpp.s
+src/static_variables.cpp.s:
+	$(MAKE) -f CMakeFiles/02_pm_tt.dir/build.make CMakeFiles/02_pm_tt.dir/src/static_variables.cpp.s
+.PHONY : src/static_variables.cpp.s
+
+src/thread_to_be_managed.o: src/thread_to_be_managed.cpp.o
+
+.PHONY : src/thread_to_be_managed.o
+
+# target to build an object file
+src/thread_to_be_managed.cpp.o:
+	$(MAKE) -f CMakeFiles/02_pm_tt.dir/build.make CMakeFiles/02_pm_tt.dir/src/thread_to_be_managed.cpp.o
+.PHONY : src/thread_to_be_managed.cpp.o
+
+src/thread_to_be_managed.i: src/thread_to_be_managed.cpp.i
+
+.PHONY : src/thread_to_be_managed.i
+
+# target to preprocess a source file
+src/thread_to_be_managed.cpp.i:
+	$(MAKE) -f CMakeFiles/02_pm_tt.dir/build.make CMakeFiles/02_pm_tt.dir/src/thread_to_be_managed.cpp.i
+.PHONY : src/thread_to_be_managed.cpp.i
+
+src/thread_to_be_managed.s: src/thread_to_be_managed.cpp.s
+
+.PHONY : src/thread_to_be_managed.s
+
+# target to generate assembly for a file
+src/thread_to_be_managed.cpp.s:
+	$(MAKE) -f CMakeFiles/02_pm_tt.dir/build.make CMakeFiles/02_pm_tt.dir/src/thread_to_be_managed.cpp.s
+.PHONY : src/thread_to_be_managed.cpp.s
+
+src/tt_thread_register.o: src/tt_thread_register.cpp.o
+
+.PHONY : src/tt_thread_register.o
+
+# target to build an object file
+src/tt_thread_register.cpp.o:
+	$(MAKE) -f CMakeFiles/02_pm_tt.dir/build.make CMakeFiles/02_pm_tt.dir/src/tt_thread_register.cpp.o
+.PHONY : src/tt_thread_register.cpp.o
+
+src/tt_thread_register.i: src/tt_thread_register.cpp.i
+
+.PHONY : src/tt_thread_register.i
+
+# target to preprocess a source file
+src/tt_thread_register.cpp.i:
+	$(MAKE) -f CMakeFiles/02_pm_tt.dir/build.make CMakeFiles/02_pm_tt.dir/src/tt_thread_register.cpp.i
+.PHONY : src/tt_thread_register.cpp.i
+
+src/tt_thread_register.s: src/tt_thread_register.cpp.s
+
+.PHONY : src/tt_thread_register.s
+
+# target to generate assembly for a file
+src/tt_thread_register.cpp.s:
+	$(MAKE) -f CMakeFiles/02_pm_tt.dir/build.make CMakeFiles/02_pm_tt.dir/src/tt_thread_register.cpp.s
+.PHONY : src/tt_thread_register.cpp.s
+
+src/tt_thread_wait_invocation.o: src/tt_thread_wait_invocation.cpp.o
+
+.PHONY : src/tt_thread_wait_invocation.o
+
+# target to build an object file
+src/tt_thread_wait_invocation.cpp.o:
+	$(MAKE) -f CMakeFiles/02_pm_tt.dir/build.make CMakeFiles/02_pm_tt.dir/src/tt_thread_wait_invocation.cpp.o
+.PHONY : src/tt_thread_wait_invocation.cpp.o
+
+src/tt_thread_wait_invocation.i: src/tt_thread_wait_invocation.cpp.i
+
+.PHONY : src/tt_thread_wait_invocation.i
+
+# target to preprocess a source file
+src/tt_thread_wait_invocation.cpp.i:
+	$(MAKE) -f CMakeFiles/02_pm_tt.dir/build.make CMakeFiles/02_pm_tt.dir/src/tt_thread_wait_invocation.cpp.i
+.PHONY : src/tt_thread_wait_invocation.cpp.i
+
+src/tt_thread_wait_invocation.s: src/tt_thread_wait_invocation.cpp.s
+
+.PHONY : src/tt_thread_wait_invocation.s
+
+# target to generate assembly for a file
+src/tt_thread_wait_invocation.cpp.s:
+	$(MAKE) -f CMakeFiles/02_pm_tt.dir/build.make CMakeFiles/02_pm_tt.dir/src/tt_thread_wait_invocation.cpp.s
+.PHONY : src/tt_thread_wait_invocation.cpp.s
 
 # Help Target
 help:
@@ -210,18 +399,39 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... 02_pth_mng_copy"
-	@echo "... src/main_thread_executor.o"
-	@echo "... src/main_thread_executor.i"
-	@echo "... src/main_thread_executor.s"
+	@echo "... edit_cache"
+	@echo "... 02_pm_tt"
+	@echo "... src/create_posix_timer.o"
+	@echo "... src/create_posix_timer.i"
+	@echo "... src/create_posix_timer.s"
+	@echo "... src/create_pthread.o"
+	@echo "... src/create_pthread.i"
+	@echo "... src/create_pthread.s"
+	@echo "... src/initialize_variables.o"
+	@echo "... src/initialize_variables.i"
+	@echo "... src/initialize_variables.s"
+	@echo "... src/main_executor.o"
+	@echo "... src/main_executor.i"
+	@echo "... src/main_executor.s"
+	@echo "... src/periodic_handler.o"
+	@echo "... src/periodic_handler.i"
+	@echo "... src/periodic_handler.s"
 	@echo "... src/print_functions.o"
 	@echo "... src/print_functions.i"
 	@echo "... src/print_functions.s"
-	@echo "... src/pthread_management_with_time_trigger.o"
-	@echo "... src/pthread_management_with_time_trigger.i"
-	@echo "... src/pthread_management_with_time_trigger.s"
+	@echo "... src/static_variables.o"
+	@echo "... src/static_variables.i"
+	@echo "... src/static_variables.s"
+	@echo "... src/thread_to_be_managed.o"
+	@echo "... src/thread_to_be_managed.i"
+	@echo "... src/thread_to_be_managed.s"
+	@echo "... src/tt_thread_register.o"
+	@echo "... src/tt_thread_register.i"
+	@echo "... src/tt_thread_register.s"
+	@echo "... src/tt_thread_wait_invocation.o"
+	@echo "... src/tt_thread_wait_invocation.i"
+	@echo "... src/tt_thread_wait_invocation.s"
 .PHONY : help
 
 
