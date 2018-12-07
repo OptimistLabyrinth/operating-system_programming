@@ -1,3 +1,0 @@
-/home/yks93/Documents/assignments/Operating_System/pthread_with_class_example/build/CMakeFiles/rebuild_cache.dir
-/home/yks93/Documents/assignments/Operating_System/pthread_with_class_example/build/CMakeFiles/edit_cache.dir
-/home/yks93/Documents/assignments/Operating_System/pthread_with_class_example/build/CMakeFiles/00_pthread_test_with_class.dir

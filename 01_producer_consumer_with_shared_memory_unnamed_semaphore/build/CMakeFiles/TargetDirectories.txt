@@ -1,3 +1,0 @@
-/home/yks93/Documents/assignments/Operating_System/01_producer_consumer_with_shared_memory_unnamed_semaphore/build/CMakeFiles/edit_cache.dir
-/home/yks93/Documents/assignments/Operating_System/01_producer_consumer_with_shared_memory_unnamed_semaphore/build/CMakeFiles/rebuild_cache.dir
-/home/yks93/Documents/assignments/Operating_System/01_producer_consumer_with_shared_memory_unnamed_semaphore/build/CMakeFiles/01_Producer_Consumer.dir

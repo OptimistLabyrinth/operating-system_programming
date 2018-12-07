@@ -1,1 +1,0 @@
-/usr/bin/c++    -g -std=gnu++14 -Wall   CMakeFiles/09_test.dir/src/main_thread_executor.cpp.o  -o 09_test -rdynamic -lpthread -lrt 
