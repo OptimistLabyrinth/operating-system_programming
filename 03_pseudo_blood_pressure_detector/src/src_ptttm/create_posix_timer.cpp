@@ -3,29 +3,29 @@
 
 
 // static PTTTM variables
-extern std::shared_ptr<pthread_mutex_t> API_Mutex;
-extern std::shared_ptr<timer_args> TM_Arg;
-extern std::shared_ptr<timer_t> Timer;
+extern std::unique_ptr<pthread_mutex_t> API_Mutex;
+extern std::unique_ptr<timer_args> TM_Arg;
+extern std::unique_ptr<timer_t> Timer;
 
-extern std::shared_ptr<thread_args> THR_Arg__acq_thread;
-extern std::shared_ptr<thread_args> THR_Arg__proc_thread;
+extern std::unique_ptr<thread_args> THR_Arg__acq_thread;
+extern std::unique_ptr<thread_args> THR_Arg__proc_thread;
 
-extern std::shared_ptr<TCB> TCB_storage;
+extern std::unique_ptr<TCB> TCB_storage;
 
 // static PBPD variables
-extern std::shared_ptr<pthread_cond_t> API_cond_data_acqusition;
-extern std::shared_ptr<pthread_cond_t> API_cond_bp_processing;
+extern std::unique_ptr<pthread_cond_t> API_cond_data_acqusition;
+extern std::unique_ptr<pthread_cond_t> API_cond_bp_processing;
 
-extern std::shared_ptr<pthread_t> acq_thread;
-extern std::shared_ptr<pthread_t> proc_thread;
+extern std::unique_ptr<pthread_t> acq_thread;
+extern std::unique_ptr<pthread_t> proc_thread;
 
-extern std::shared_ptr<std::queue<int>> bp_queue;
-extern std::shared_ptr<pthread_mutex_t> Q_MUtex;
-extern std::shared_ptr<pthread_cond_t> Q_Cond;
+extern std::unique_ptr<std::queue<int>> bp_queue;
+extern std::unique_ptr<pthread_mutex_t> Q_MUtex;
+extern std::unique_ptr<pthread_cond_t> Q_Cond;
 
 
 
-size_t get_timer_frequency(void)
+inline size_t get_timer_frequency(void)
 {
     size_t freq;
     auto GET_METHOD = TIMER_FREQUENCY_FROM_INTERNAL;
@@ -49,7 +49,7 @@ size_t get_timer_frequency(void)
     return freq;
 }
 
-void set_timer_arguments(void)
+inline void set_timer_arguments(void)
 {
     auto freq = get_timer_frequency();
 

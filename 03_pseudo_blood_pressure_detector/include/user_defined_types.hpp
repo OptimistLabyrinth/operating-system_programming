@@ -5,6 +5,8 @@
 
 
 
+using err_msg_type = const char*;
+
 using event = struct sigevent;
 using t_spec = struct itimerspec;
 

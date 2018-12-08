@@ -11,10 +11,20 @@ std::uniform_int_distribution<int> systolic(110, 150);
 
 int pseudo_distolic_blood_pressure(void)
 {
-    return diastolic(rand_gen);
+    try {
+        return diastolic(rand_gen);
+    }
+    catch (std::exception e) {
+        throw e;
+    }
 }
 
 int pseudo_systolic_blood_pressure(void)
 {
-    return systolic(rand_gen);
+    try {
+        return systolic(rand_gen);
+    }
+    catch (std::exception e) {
+        throw e;
+    }
 }
