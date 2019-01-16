@@ -52,7 +52,9 @@ int main(int argc, char* argv[])
      fflush(stdout);
      while (1) {
           newsockfd = accept(sockfd, (struct sockaddr*)&cli_addr, &clilen);
-          uint16_t portno_fork = ntohs(cli_addr.sin_port);
+          int option = 1;
+          setsockopt(sockfd, SOL_SOCKET, SO_REUSEADDR|SO_REUSEPORT, &option, sizeof(option));
+
           const char msg_send[] = "Socket Programming with C (OK) --- from Server\n";
           if (newsockfd < 0) {
                error("ERROR on accept\n");
@@ -67,7 +69,7 @@ int main(int argc, char* argv[])
                else {
                     clilen = sizeof(cli_addr);
                     printf("server: got connection from %s, port no. %d\n",
-                         inet_ntoa(cli_addr.sin_addr), portno_fork);
+                         inet_ntoa(cli_addr.sin_addr), ntohs(cli_addr.sin_port));
                     n = send(newsockfd, msg_send, sizeof(msg_send), 0);
                     if (n < 0) {
                          shutdown(newsockfd, SHUT_WR);
@@ -85,6 +87,7 @@ int main(int argc, char* argv[])
                     return 0;
                }
           }
+          close(newsockfd);
      }
      close(sockfd);
      printf("server program ended\n");
