@@ -18,6 +18,8 @@ void error(const char *msg)
 
 int main(int argc, char* argv[])
 {
+     printf("server (parent) started\n");
+     
      int sockfd, newsockfd;
      static int portno = 12490;
      socklen_t clilen;
@@ -51,11 +53,15 @@ int main(int argc, char* argv[])
      int pid;
      fflush(stdout);
      while (1) {
+          clilen = sizeof(cli_addr);
           newsockfd = accept(sockfd, (struct sockaddr*)&cli_addr, &clilen);
           int option = 1;
           setsockopt(sockfd, SOL_SOCKET, SO_REUSEADDR|SO_REUSEPORT, &option, sizeof(option));
 
           const char msg_send[] = "Socket Programming with C (OK) --- from Server\n";
+
+          printf("server: got connection from %s, port no. %d\n", 
+                    inet_ntoa(cli_addr.sin_addr), ntohs(cli_addr.sin_port));
           if (newsockfd < 0) {
                error("ERROR on accept\n");
                close(sockfd);
@@ -67,30 +73,38 @@ int main(int argc, char* argv[])
                     continue;
                }
                else {
-                    clilen = sizeof(cli_addr);
-                    printf("server: got connection from %s, port no. %d\n",
-                         inet_ntoa(cli_addr.sin_addr), ntohs(cli_addr.sin_port));
-                    n = send(newsockfd, msg_send, sizeof(msg_send), 0);
-                    if (n < 0) {
-                         shutdown(newsockfd, SHUT_WR);
-                         close(newsockfd);
-                         // break;
-                    }
-                    memset(buffer, 0, BUFFER_SIZE);
+                    printf("server (child) forked\n");
+                    while (1) {
+                         n = send(newsockfd, msg_send, sizeof(msg_send), 0);
+                         if (n < 0) {
+                              shutdown(newsockfd, SHUT_WR);
+                              close(newsockfd);
+                              // break;
+                         }
+                         memset(buffer, 0, BUFFER_SIZE);
 
-                    n = read(newsockfd, buffer, BUFFER_SIZE);
-                    if (n < 0)
-                         error("ERROR reading from socket\n");
-                    printf("Message from client : %s", buffer);
-                    close(newsockfd);
-                    close(sockfd);
-                    return 0;
+                         n = read(newsockfd, buffer, BUFFER_SIZE);
+                         if (strncmp(buffer, ":exit", 5) == 0 
+                              || strncmp(buffer, ":quit", 5) == 0) {
+                              printf("connection on port no. %d terminated\n",
+                                   ntohs(cli_addr.sin_port));
+                              shutdown(newsockfd, SHUT_WR);
+                              close(newsockfd);
+                              break;
+                         }
+                         if (n < 0)
+                              error("ERROR reading from socket\n");
+                         printf("Message from client : %s", buffer);
+                    }
+                    break;
                }
           }
+          shutdown(newsockfd, SHUT_RDWR);
           close(newsockfd);
      }
+     shutdown(sockfd, SHUT_WR);
      close(sockfd);
-     printf("server program ended\n");
+     printf("server program (child) ended\n");
 
      return 0;
 }

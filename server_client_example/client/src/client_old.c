@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
     // }
 
             // portno = atoi(argv[2]);
-        
+
     while (1) {
         sockfd = socket(AF_INET, SOCK_STREAM, 0);
         // int option = 1;

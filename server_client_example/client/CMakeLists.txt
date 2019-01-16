@@ -8,7 +8,7 @@ include_directories(${INCLUDE_DIRS})
 
 set(SOURCE_FILE_DIR ${PROJECT_SOURCE_DIR}/src)
 set(SOURCE_FILES
-		${SOURCE_FILE_DIR}/client_old.c
+		${SOURCE_FILE_DIR}/client_old_02.c
 )
 add_executable(client_program ${SOURCE_FILES})
 
